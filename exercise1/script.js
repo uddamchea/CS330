@@ -15,7 +15,7 @@ function isPrime(n) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let numberInput = params.get('n')
-        for (var n = 2; n < numberInput; n++) {
+        for (var i = 2; i < numberInput; i++) {
             if ( number % n === 0) {
                 return false;
             }
