@@ -12,32 +12,48 @@ function greet() {
 }
 
 function isPrime(n) {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
     let numberInput = params.get('n')
         for (var i = 2; i < numberInput; i++) {
             if ( number % n === 0) {
-                return false;
+                return n > 1;
             }
         }
 }
 
 function printPrimeNumber() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const numberInput = urlParams.get('n')||330;
+    if (isPrime(n)){
+        document.querySelector("#primeInfo").innerText=`${n}  is a prime number`;
+    }
+    else {
+        document.querySelector("#primeInfo").innerText=`${n} is not a prime number`
+    }
 }
 
 function getNPrimes(n) {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    let numberInput = params.get('n')
-    var arr = [2];
-        for (var n = 3; n < numberInput; n+=2) {
-            if (isPrime(n)) {
-                arr.push(n);
-            }
+    var primeNumberList = [];
+    var k = 2;
+    for (var i = 0; i < n; i++){
+        while (primeNumberList.length < n){
+            if (isPrime(k))primeNumberList.push(k);
+            k++;
         }
+    }
+    return primeNumberList
 }
 
 function printNPrimes() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const numberInput = urlParams.get('n')||330;
+    let tableHead = document.querySelector("thread");
+    tableHead.innerHTML = `The first ${n} primes`;
+    for (var item of getNPrimes(n)){
+        var tableData = document.querySelector("tableBody");
+        var newRow = tableData.insertRow();
+    }
 }
 
 window.onload = function() {
