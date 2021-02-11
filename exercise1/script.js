@@ -4,8 +4,6 @@
 
 var urlParams = new URLSearchParams(window.location.search);
 
-#TEST2
-
 function greet() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
