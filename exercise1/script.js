@@ -12,11 +12,11 @@ function greet() {
 }
 
 function isPrime(n) {
-    let numberInput = params.get('n')
         for (var i = 2; i < numberInput; i++) {
-            if ( number % n === 0) {
-                return n > 1;
+            if (number % n === 0) {
+                return false;
             }
+                return n > 1;
         }
 }
 
