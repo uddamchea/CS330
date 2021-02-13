@@ -48,7 +48,7 @@ function printNPrimes() {
     const urlParams = new URLSearchParams(queryString);
     const n = urlParams.get('n')||330;
     let tHead = document.querySelector("thead");
-    tHead.innerHTML = `The first ${n} primes`;
+    tHead.innerHTML = `The first ${n} prime numbers`;
         for (var item of getNPrimes(n)){
             var tableData = document.querySelector("tBody");
             var newRow = tableData.insertRow();
