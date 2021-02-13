@@ -7,8 +7,8 @@ var urlParams = new URLSearchParams(window.location.search);
 function greet() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    let greetElement = document.querySelector("h1");
-    greetElement.innerHTML = `Hello ${urlParams.get('name')||'student'}`;
+    let greeting = document.querySelector("h1");
+    greeting.innerHTML = `Hello ${urlParams.get('name')||'student'}`;
 }
 
 function isPrime(n) {
