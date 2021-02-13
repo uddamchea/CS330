@@ -1,8 +1,16 @@
 /* jshint esversion: 8 */
 /* jshint node: true */
+/* Final Version*/
 'use strict';
 
 var urlParams = new URLSearchParams(window.location.search);
+
+//check url if there are any parameters
+//source code from stackoverflow
+/*var arr = url.split('?');
+if (url.length > 1 && arr[1] !== '') {
+  console.log('parameters found');
+}*/
 
 function greet() {
     const queryString = window.location.search;
@@ -11,11 +19,10 @@ function greet() {
     greeting.innerHTML = `Hello ${urlParams.get('name')||'student'}`;
 }
 
+//source code from stackoverflow
 function isPrime(n) {
         for (var i = 2; i < n; i++)
-            if (n % i === 0) {
-                return false;
-            }
+            if (n % i === 0) return false;
         return n > 1;
 }
 
