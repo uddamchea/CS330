@@ -8,24 +8,39 @@
 
 <body>
     <div class=container>
-        <span id=result>&nbsp;</span>
-        <button id=btn0 onclick="enterDigit(0)">0</button>
-        <button id=btn1 onclick="enterDigit(1)">1</button>
-        <button id=btn2 onclick="enterDigit(2)">2</button>
-        <button id=btn3 onclick="enterDigit(3)">3</button>
-        <button id=btn4 onclick="enterDigit(4)">4</button>
-        <button id=btn5 onclick="enterDigit(5)">5</button>
-        <button id=btn6 onclick="enterDigit(6)">6</button>
-        <button id=btn7 onclick="enterDigit(7)">7</button>
-        <button id=btn8 onclick="enterDigit(8)">8</button>
-        <button id=btn9 onclick="enterDigit(9)">9</button>
-        <button id=btnSum onclick="enterOp('+')">+</button>
-        <button id=btnSub onclick="enterOp('-')">-</button>
-        <button id=btnMul onclick="enterOp('*')">*</button>
-        <button id=btnDiv onclick="enterOp('/')">/</button>
-        <button id=btnEql onclick="eval_expr()">=</button>
-        <button id=btnClr onclick="clear_screen()">C</button>
-        <button id=btnDiv onclick="enterDigit('.')">.</button>
+        <input type="text" id="result" name="ans" value="" class="form-control" placeholder="0">
+
+        <div class="d-grid gap-2">
+        <button id=btnEql type="button" class="btn btn-success btn-lg btn-block" onclick="eval_expr()">=</button>
+        </div>
+
+        <div class="grid-item">
+        <button id=btn7 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(7)">7</button>
+        <button id=btn8 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(8)">8</button>
+        <button id=btn9 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(9)">9</button> 
+        <button id=btnDiv type="button" class="btn btn-secondary btn-lg" onclick="enterOp('/')">/</button>
+        </div>
+
+        <div class="grid-item">
+        <button id=btn4 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(4)">4</button>
+        <button id=btn5 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(5)">5</button>
+        <button id=btn6 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(6)">6</button>
+        <button id=btnMul type="button" class="btn btn-secondary btn-lg" onclick="enterOp('*')">*</button>
+        </div>
+        
+        <div class="grid-item">
+        <button id=btn1 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(1)">1</button>
+        <button id=btn2 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(2)">2</button>
+        <button id=btn3 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(3)">3</button>
+        <button id=btnSub type="button" class="btn btn-secondary btn-lg" onclick="enterOp('-')">-</button>
+        </div>
+
+        <div class="grid-item">
+        <button id=btnClr type="button" class="btn btn-danger btn-lg" onclick="clear_screen()">C</button>
+        <button id=btn0 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(0)">0</button>
+        <button id=btnDiv type="button" class="btn btn-primary btn-lg" onclick="enterDigit('.')">.</button>
+        <button id=btnSum type="button" class="btn btn-secondary btn-lg" onclick="enterOp('+')">+</button>
+        </div>
     </div>
 
     <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

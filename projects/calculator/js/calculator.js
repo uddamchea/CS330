@@ -10,6 +10,7 @@ function enterDigit(digit) {
 }
 
 function clear_screen() {
+    document.getElementById("display").innerHTML = "";
 }
 
 function eval_expr() {
