@@ -4,12 +4,16 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/calculator.css" type="text/css">
+    <h1> My Calculator </h1>
 </head>
 
 <body>
     <div class=container>
+        <div class="display">
         <input type="text" id="result" name="ans" value="" class="form-control" placeholder="0">
-
+        </div>
+        
+        <div class="buttons">
         <div class="d-grid gap-2">
         <button id=btnEql type="button" class="btn btn-success btn-lg btn-block" onclick="eval_expr()">=</button>
         </div>
@@ -40,6 +44,7 @@
         <button id=btn0 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(0)">0</button>
         <button id=btnDiv type="button" class="btn btn-primary btn-lg" onclick="enterDigit('.')">.</button>
         <button id=btnSum type="button" class="btn btn-secondary btn-lg" onclick="enterOp('+')">+</button>
+        </div>
         </div>
     </div>
 
