@@ -1,44 +1,36 @@
-h1 {
-  text-align: center;
+.container{
+  margin-top:100px;
 }
 
-
-.container {
-  width:auto;
-}
-
-button {
-  height: 60px;
-  width: 24.21%;
-  border-radius: 3px;
-  border: 1px;
-  font-size: 2 rem;
-  margin: 3px;
-  padding: 5px;
-}
-
-body {
-  margin-top: 50px;
-  width: 100%;
-}
-
-#btnEql {
-  width: 99.8%;
-}
-
-.container {
+.buttons{
   width:100%;
-  padding:10px;
+  height:100%;
 }
 
-.display {
-  margin-bottom: 30px;
+.operator{
+  background-color: rgb(232, 248, 143);
+  width:24.5%;
+  height:50px;
+  margin:1px;
 }
 
-.buttons {
-  width:100%;
+.key{
+  background-color: aqua;
+  width:24.5%;
+  height:50px;
+  margin:1px;
 }
 
-.gird-items {
-  width:80%;
+.cancel{
+  background-color: rgb(209, 107, 107);
+  width:24.5%;
+  height:50px;
+  margin:1px;
+}
+
+.equal{
+  background-color: rgb(131, 209, 107);
+  width:98.5%;
+  height:50px;
+  margin:1px;
 }

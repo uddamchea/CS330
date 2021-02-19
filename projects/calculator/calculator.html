@@ -4,47 +4,44 @@
 <head>
     <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/calculator.css" type="text/css">
-    <h1> My Calculator </h1>
 </head>
 
 <body>
     <div class=container>
+
         <div class="display">
-        <input type="text" id="result" name="ans" value="" class="form-control" placeholder="0">
+        <span id=result>&nbsp;</span>
         </div>
-        
+
         <div class="buttons">
-        <div class="d-grid gap-2">
-        <button id=btnEql type="button" class="btn btn-success btn-lg btn-block" onclick="eval_expr()">=</button>
+        <div class="row">
+        <button id=btnEql class="equal btn" onclick="eval_expr()">=</button>
         </div>
-
-        <div class="grid-item">
-        <button id=btn7 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(7)">7</button>
-        <button id=btn8 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(8)">8</button>
-        <button id=btn9 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(9)">9</button> 
-        <button id=btnDiv type="button" class="btn btn-secondary btn-lg" onclick="enterOp('/')">/</button>
+        <div class="row">
+        <button id=btn7 class="key btn" btn onclick="enterDigit(7)">7</button>
+        <button id=btn8 class="key btn" btn onclick="enterDigit(8)">8</button>
+        <button id=btn9 class="key btn" btn onclick="enterDigit(9)">9</button>
+        <button id=btnDiv class="operator btn" onclick="enterOp('/')">/</button>
         </div>
-
-        <div class="grid-item">
-        <button id=btn4 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(4)">4</button>
-        <button id=btn5 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(5)">5</button>
-        <button id=btn6 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(6)">6</button>
-        <button id=btnMul type="button" class="btn btn-secondary btn-lg" onclick="enterOp('*')">*</button>
+        <div class="row">
+        <button id=btn4 class="key btn" onclick="enterDigit(4)">4</button>
+        <button id=btn5 class="key btn" onclick="enterDigit(5)">5</button>
+        <button id=btn6 class="key btn" onclick="enterDigit(6)">6</button>
+        <button id=btnMul class="operator btn" onclick="enterOp('*')">*</button>
+        </div>
+        <div class="row">
+        <button id=btn1 class="key btn" onclick="enterDigit(1)">1</button>
+        <button id=btn2 class="key btn" onclick="enterDigit(2)">2</button>
+        <button id=btn3 class="key btn" onclick="enterDigit(3)">3</button>
+        <button id=btnSub class="operator btn" onclick="enterOp('-')">-</button>
+        </div>
+        <div class="row">
+        <button id=btnClr class="cancel btn" onclick="clear_screen()">C</button>
+        <button id=btn0 class="key btn" onclick="enterDigit(0)">0</button>
+        <button id=btnDot class="key btn" onclick="enterDigit('.')">.</button>
+        <button id=btnSum class="operator btn" onclick="enterOp('+')">+</button>
         </div>
         
-        <div class="grid-item">
-        <button id=btn1 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(1)">1</button>
-        <button id=btn2 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(2)">2</button>
-        <button id=btn3 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(3)">3</button>
-        <button id=btnSub type="button" class="btn btn-secondary btn-lg" onclick="enterOp('-')">-</button>
-        </div>
-
-        <div class="grid-item">
-        <button id=btnClr type="button" class="btn btn-danger btn-lg" onclick="clear_screen()">C</button>
-        <button id=btn0 type="button" class="btn btn-primary btn-lg" onclick="enterDigit(0)">0</button>
-        <button id=btnDiv type="button" class="btn btn-primary btn-lg" onclick="enterDigit('.')">.</button>
-        <button id=btnSum type="button" class="btn btn-secondary btn-lg" onclick="enterOp('+')">+</button>
-        </div>
         </div>
     </div>
 
