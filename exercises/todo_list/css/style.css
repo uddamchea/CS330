@@ -9,3 +9,33 @@
 
 .low {
 }
+
+h1{
+    background-color: aquamarine;
+    text-align: center;
+}
+
+#addTaskBtn{
+    background-color: rgb(150, 229, 248);
+}
+
+#title{
+    margin:10px;
+}
+
+#assignedTo{
+    margin:10px;
+}
+
+#priority{
+    margin:10px;
+}
+
+#dueDate{
+    margin:10px;
+}
+
+#addTaskBtn{
+    margin-top:10px;
+    margin-bottom:10px;
+}
