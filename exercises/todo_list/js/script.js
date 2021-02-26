@@ -12,9 +12,10 @@ function addTask() {
     if (!document.querySelector("#newTask").checkValidity()) {
         let warning = document.createElement("p");
         warning.setAttribute("class", "alert alert-warning");
-        warning.innerText = "Enter all values please";
+        warning.innerText = "Please enter all values";
         document.querySelector("body").appendChild(warning);
         return;
+    }
 
     //Implement
 
@@ -33,17 +34,15 @@ function addRow(valueList, parent) {
 
 function removeRow() {
     // https://stackoverflow.com/questions/26512386/remove-current-row-tr-when-checkbox-is-checked
-    $('#btnEClear').on('click', function () {
-        $("#tablaNorma input[type='checkbox']:checked:not('.toggleCheckbox')").closest("tr").remove();
-    }
 }
 
 function populateSelect(selectId, sList) {
-    for (let opt of sList) {
+    let sel = document.getElementById(selectId);
+    for (let item of sList) {
         let anOption = document.createElement("option");
-        anOption.setAttribute("value", opt);
-        anOption.innerHTML = opt;
-        selectID.appendChild(anOption);
+        anOption.setAttribute("value", item);
+        anOption.innerHTML = item;
+        sel.appendChild(anOption);
     }
 
     // Implement
