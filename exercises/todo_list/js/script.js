@@ -19,12 +19,12 @@ function addTask() {
     }
 
     let title = document.querySelector("#title").value;
-    vals.push(title);
     let team = document.querySelector("#assignedTo").selectedOptions[0].value;
-    vals.push(team);
     let priority = document.querySelector("#priority").selectedOptions[0].value;
-    vals.push(priority);
     let dueDate = document.querySelector("#dueDate").value;
+    vals.push(title);
+    vals.push(team);
+    vals.push(priority);
     vals.push(dueDate);
 
     addRow(vals, document.getElementById("taskList"));
@@ -33,27 +33,26 @@ function addTask() {
 function addRow(valueList, parent) {
     let row = document.createElement("tr");
     let cb = document.createElement("input");
+    let td = document.createElement("td");
     cb.setAttribute("type", "checkbox");
-    cb.setAttribute("id", "eliminate");
-    cb.onclick = removeRow();
+    cb.setAttribute("id", "clear");
     let checker = document.createElement("td");
     checker.appendChild(cb);
     row.appendChild(checker);
     for (let value of valueList){
         let td = document.createElement("td");
-        td.document.createElement("td");
+        //td.document.createElement("td");
         td.innerHTML = value;
         row.appendChild(td);
+        
     }
 
     parent.appendChild(row);
+    cb.onclick = removeRow();
 }
 
 function removeRow() {
     // https://stackoverflow.com/questions/26512386/remove-current-row-tr-when-checkbox-is-checked
-    $('#btnEliminar').on('click', function () {
-        $("#tablaNorma input[type='checkbox']:checked").closest("tr").remove();
-    });
 }
 
 function populateSelect(selectId, sList) {

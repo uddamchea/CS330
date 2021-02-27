@@ -1,45 +1,47 @@
-.critical {
-}
-
-.important {
-}
-
-.normal {
-}
-
-.low {
-}
-
 .container{
-    margin-top:40px;
+    margin-top:50px;
 }
 
 h1{
-    background-color: aquamarine;
+    margin: auto;
+    width: 100%;
+    background-color: rgb(188, 255, 188);
+    padding: 10px;
     text-align: center;
-}
-
-#addTaskBtn{
-    background-color: rgb(150, 229, 248);
+    border-radius: 8px;
 }
 
 #title{
-    margin:10px;
+    margin:0 40px;
+    border: 2px solid black;
 }
 
 #assignedTo{
-    margin:10px;
+    margin:0 50px;
+    border: 2px solid black;
 }
-
 #priority{
-    margin:10px;
+    margin:0 50px;
+    width:180px;
+    border: 2px solid black;
 }
-
 #dueDate{
-    margin:10px;
+    margin:0 50px;
+    border: 2px solid black;
 }
 
-#addTaskBtn{
-    margin-top:10px;
-    margin-bottom:10px;
+#taskList{
+    margin:left;
+    padding:20px;
+    text-align: left;
 }
+#addTaskBtn {
+    background-color:rgb(90, 245, 245);
+    width: 102.7%;
+    height:50px;
+    margin-top: 20px;
+    border:none;
+    border-radius: 8px;
+    text-align: center;
+}
+

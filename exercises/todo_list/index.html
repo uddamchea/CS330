@@ -3,7 +3,8 @@
 <head>
     <title>TODO list</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" type = "text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body> 
@@ -11,7 +12,7 @@
         <h1>TODO List</h1>
         <div class="container">
             <form id="newTask">
-            <div>
+            <div class = "form-inline">
                 <div>
                     <label for="title">Task</label>
                     <input id="title" required />
@@ -19,29 +20,29 @@
 
                 <div>
                     <label for="assignedTo">Assigned to</label>
-                    <select id="assignedTo"></select>
+                    <select id="assignedTo" class="btn"></select>
                 </div>
 
                 <div>
                     <label for="priority">Priority</label>
-                    <select id="priority"></select>
+                    <select id="priority" class="btn"></select>
                 </div>
 
                 <div>
                     <label for="dueDate">Due date</label>
-                    <input id="dueDate" type=date required />
+                    <input id="dueDate" type= "date" class="btn"required />
                 </div>
             </div>
             <div>
-                <button type="button" id="addTaskBtn" onclick="addTask()">Add task</button>
+                <button type="button" id="addTaskBtn" onclick="addTask()"class= "btn">Add task</button>
             </div>
         </form>
     </div>
     </div>
 
     <div class="container">
-        <table id="taskList">
-            <thead>
+        <table id="taskList" class= "table">
+            <thead class = "thead-light">
                 <tr>
                     <th></th>
                     <th>Task</th>
