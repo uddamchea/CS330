@@ -9,7 +9,6 @@ function addTask() {
     let vals = [];
     let rowcolids = ["title", "assignedTo", "priority", "dueDate"];
 
-    //Implement
     if (!document.querySelector("#newTask").checkValidity()) {
         let warning = document.createElement("p");
         warning.setAttribute("class", "alert alert-warning");
@@ -36,15 +35,29 @@ function addRow(valueList, parent) {
     let td = document.createElement("td");
     cb.setAttribute("type", "checkbox");
     cb.setAttribute("id", "clear");
+    cd.setAttribute("onclick", "removeRow();");
+    cb.classList.add("remove");
     let checker = document.createElement("td");
     checker.appendChild(cb);
     row.appendChild(checker);
     for (let value of valueList){
         let td = document.createElement("td");
-        //td.document.createElement("td");
+        td.document.createElement("td");
         td.innerHTML = value;
+        if (value=="Low"){
+            row.style.backgroundColor="lime";
+        }
+        else if (value=="Normal"){
+            row.style.backgroundColor="aqua";
+        }
+        else if (value=="Important"){
+            row.style.backgroundColor="yellow";
+        }
+        else if (value=="Critical"){
+            row.style.backgroundColor="red";
+        }
+
         row.appendChild(td);
-        
     }
 
     parent.appendChild(row);
@@ -52,7 +65,7 @@ function addRow(valueList, parent) {
 }
 
 function removeRow() {
-    // https://stackoverflow.com/questions/26512386/remove-current-row-tr-when-checkbox-is-checked
+        $("#taskList input[type='checkbox']:checked").closest("tr").remove();
 }
 
 function populateSelect(selectId, sList) {
