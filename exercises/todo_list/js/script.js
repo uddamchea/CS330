@@ -34,16 +34,16 @@ function addRow(valueList, parent) {
     let cb = document.createElement("input");
     let td = document.createElement("td");
     cb.setAttribute("type", "checkbox");
-    cb.setAttribute("id", "clear");
-    cd.setAttribute("onclick", "removeRow();");
-    cb.classList.add("remove");
+    cb.setAttribute('id', 'clear');
+    cb.setAttribute('onclick', 'removeRow();');
+    cb.classList.add('remove');
     let checker = document.createElement("td");
     checker.appendChild(cb);
     row.appendChild(checker);
     for (let value of valueList){
         let td = document.createElement("td");
-        td.document.createElement("td");
         td.innerHTML = value;
+
         if (value=="Low"){
             row.style.backgroundColor="lime";
         }
@@ -61,7 +61,7 @@ function addRow(valueList, parent) {
     }
 
     parent.appendChild(row);
-    cb.onclick = removeRow();
+    
 }
 
 function removeRow() {
