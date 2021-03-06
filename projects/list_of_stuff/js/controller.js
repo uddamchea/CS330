@@ -36,7 +36,6 @@ function addGame(){
     let store = document.querySelector("#gameStore").selectedOptions[0].value;
     let hours = document.querySelector("#gameHours").value; 
 
-    // Add to the model
     let newGame = new game(name, type, price, content, store, hours);
     myInventoryModel.add(newGame);
 }
