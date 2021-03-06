@@ -3,10 +3,10 @@
 /* jshint node: true */
 'use strict';
 
-var gameType = ["Adventure", "Action", "FPS", "Simulator", "Other"]
+var gameType = ["Adventure", "Action", "FPS", "Hack & Slash", "Horror", "Simulator", "Other"]
 var gamePrice = ["< $5", "$5-$10", "$10-$20", "$20-$30", "> $30"]
 var gameContent = ["Yes", "No"]
-var gameStore = ["Steam", "Epic Games", "EA", "Ubisoft"];
+var gameStore = ["Steam", "Epic Games", "EA", "Ubisoft", "Other"];
 
 var myInventoryModel = new gameInventory(20);
 var myInventoryView = new inventoryView(myInventoryModel);
@@ -34,7 +34,7 @@ function addGame(){
     let price = document.querySelector("#gamePrice").selectedOptions[0].value;
     let content = document.querySelector("#gameContent").selectedOptions[0].value;
     let store = document.querySelector("#gameStore").selectedOptions[0].value;
-    let hours = document.querySelector("#gameHours").value;
+    let hours = document.querySelector("#gameHours").value; 
 
     // Add to the model
     let newGame = new game(name, type, price, content, store, hours);
@@ -42,18 +42,31 @@ function addGame(){
 }
 
 function saveGame(){
-    let name = document.querySelector("#gameName").value;
-    let type = document.querySelector("#gameType").selectedOptions[0].value;
-    let price = document.querySelector("#gamePrice").selectedOptions[0].value;
-    let content = document.querySelector("#gameContent").selectedOptions[0].value;
-    let store = document.querySelector("#gameStore").selectedOptions[0].value;
-    let hours = document.querySelector("#gameHours").value;
-    let newGame = new game(name, type, price, content, store, hours);
-    // Add to the inventory
-    let inventory = localStorage.getItem("local_inventory");
-    inventory = inventory ? JSON.parse(inventory) : [];
-    inventory.push(newGame);
-    localStorage.setItem("local_inventory", JSON.stringify(inventory));
+//    let name = document.querySelector("#gameName").value;
+//    let type = document.querySelector("#gameType").selectedOptions[0].value;
+//    let price = document.querySelector("#gamePrice").selectedOptions[0].value;
+//    let content = document.querySelector("#gameContent").selectedOptions[0].value;
+//    let store = document.querySelector("#gameStore").selectedOptions[0].value;
+//    let hours = document.querySelector("#gameHours").value;
+//    let newGame = new game(name, type, price, content, store, hours);
+//    // Add to the inventory
+//    let inventory = localStorage.getItem("local_inventory");
+//    inventory = inventory ? JSON.parse(inventory) : [];
+//    inventory.push(newGame);
+//    localStorage.setItem("local_inventory", JSON.stringify(inventory));
+    let gameInventory = localStorage.getItem("local_inventory");
+    gameInventory = gameInventory ? JSON.parse(gameInventory) : [];
+    $("#gameList").find('tbody tr').each(function(index,myGame){
+
+    var name = $(myGame).find('td').eq(0).text();
+    var type = $(myGame).find('td').eq(1).text();
+    var price = $(myGame).find('td').eq(2).text();
+    var content = $(myGame).find('td').eq(3).text();
+    var store = $(myGame).find('td').eq(4).text();
+    var hours = $(myGame).find('td').eq(5).text();
+    gameInventory.push(new game(name, type, price, content, store, hours))
+    });
+    localStorage.setItem("local_inventory", JSON.stringify(gameInventory))
 }
 
 function loadGame(){
