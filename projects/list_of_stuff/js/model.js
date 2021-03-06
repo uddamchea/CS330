@@ -73,7 +73,10 @@ class gameInventory extends Subject {
     }
 
     remove(game) {
-
+        if (this._inventory.length < this._maxSize) {
+            this._inventory.push(game);
+            this.publish("New game has been removed", this);
+        }
     }
 
     [Symbol.iterator]() {
