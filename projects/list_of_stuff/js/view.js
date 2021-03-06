@@ -44,6 +44,7 @@ class inventoryView {
             row.appendChild(tdHours);
 
             tblBody.appendChild(row);
+
             //document.querySelector("#gameList").appendChild(tblBody);
         }
     }
