@@ -4,23 +4,19 @@
 'use strict';
 
 class game{
-    constructor(name, title, type, price, refund, hour){
+    constructor(name, type, price, content, store, hours){
         this._name = name;
-        this._title = title;
         this._type = type;
         this._price = price;
-        this._refund = refund;
-        this._hour = hour;
+        this._content = content;
+        this._store = store;
+        this._hours = hours;
     }
 
     get name(){
         return this._name;
     }
     
-    get title(){
-        return this._title;
-    }
-
     get type(){
         return this._type;
     }
@@ -29,12 +25,16 @@ class game{
         return this._price;
     }
 
-    get refund(){
-        return this._refund;
+    get content(){
+        return this._content;
     }
 
-    get hour(){
-        return this._hour;
+    get store(){
+        return this._store;
+    }
+
+    get hours(){
+        return this._hours;
     }
 }
 

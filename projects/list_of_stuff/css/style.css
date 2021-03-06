@@ -16,38 +16,57 @@ h1{
     border: 2px solid black;
     text-align: left;
     margin-right: 10px;
+    margin-left: 50px;
 }
 
-#gameTitle{
-    border: 2px solid black;
-    width:80px;
-    margin-right: 10px;
-}
 #gameType{
-    width:180px;
     border: 2px solid black;
     margin-right: 10px;
+    margin-left: 10px;
 }
 #gamePrice{
     border: 2px solid black;
-    width: 90px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-#gameRefund{
+#gameContent{
     border: 2px solid black;
     text-align: left;
-    margin: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
+
+#gameStore{
+    border: 2px solid black;
+    text-align: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
 #gameHours {
     border: 2px solid black;
     text-align: left;
-    margin: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-#removeGame {
-
+#addGameBtn{
+    margin-top: 10px;
 }
 
-#clearGame{
-    
+#saveGameBtn{
+    margin-top: 10px;
+}
+
+#loadGameBtn{
+    margin-top: 10px;
+}
+
+#removeGameBtn{
+    margin-top: 10px;
+}
+
+#clearGameBtn{
+    margin-top: 10px;
 }
