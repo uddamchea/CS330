@@ -1,77 +1,74 @@
 /* jshint esversion: 8 */
-/* jshint node: true */
 /* jshint browser: true */
-/* jshint jquery: true */
+/* jshint node: true */
 'use strict';
 
-
-async function getData(url) {
-    return fetch(url)
-    .then(response => response.json())
-    .catch(error => console.log(error));
-}
-
-async function populateUserList() {
-    let allUsers = await fetch('https://jsonplaceholder.typicode.com/users/')
-    .then(response => response.json())
-    .catch(error => console.log(error));
-    
-    let allUsersDiv = document.querySelector("#users");
-
-    for (let user of allUsers) {
-        let userPara = document.createElement("p");
-        userPara.classList = "p";
-        userPara.innerHTML = `${user.name} (${user['email']})`;
-
-        allUsersDiv.appendChild(userPara);
-    }
-
-}
-
-async function populatePosts() {
-    let allUsers = await fetch('https://jsonplaceholder.typicode.com/users/')
-    .then(response => response.json())
-    .catch(error => console.log(error));
-
-    let [posts, comments] = await Promise.all(
-        [
-            getData("https://jsonplaceholder.typicode.com/posts/"),
-            getData("https://jsonplaceholder.typicode.com/comments/")
-        ]
-    );
-
-    let allPostsDiv = document.querySelector("#posts");
-    for (let post of posts) {
-        let postPara = document.createElement("p");
-        postPara.classList = "p";
-
-        let commCount = 0;
-        for (let comm of comments) {
-            if (comm.postId === post.id) {
-                commCount++;
-            }
-
-        }
-        try {
-            postPara.innerHTML = `${post.title} was written by 
-            <em>${allUsers[post.userId - 1]['name']}</em> 
-            and has ${commCount} comments`;
-        } catch(err) {
-            console.log(err);
-            console.log(allUsers[post.userId]);
-        }
-        
-        allPostsDiv.appendChild(postPara);
-    }
-}
-
 async function get_individual(num, all_numbers) {
+    all_numbers.innerHTML="";
 
+    let firstNumber = await fetch(`http://numbersapi.com/${num-1}?json`)
+    .then(response => response.json());
+    let firstRow=document.createElement("div");
+    let firstNumberDiv=document.createElement("div");
+    let firstFactDiv=document.createElement("div");
+    firstRow.classList.add("row1");
+    firstNumberDiv.classList.add("number1");
+    firstFactDiv.classList.add("fact1");
+    firstNumberDiv.innerHTML=firstNumber['number']
+    firstFactDiv.innerHTML=firstNumber.text;
+    firstRow.appendChild(firstNumberDiv);
+    firstRow.appendChild(firstFactDiv);
+    all_numbers.appendChild(firstRow);
+
+    let secondNumber = await fetch(`http://numbersapi.com/${num}?json`)
+    .then(response => response.json());
+    let secondRow=document.createElement("div");
+    let secondNumberDiv=document.createElement("div");
+    let secondFactDiv=document.createElement("div");
+    secondRow.classList.add("row2");
+    secondNumberDiv.classList.add("number2");
+    secondFactDiv.classList.add("fact2");
+    secondNumberDiv.innerHTML=secondNumber['number']
+    secondFactDiv.innerHTML=secondNumber.text;
+    secondRow.appendChild(secondNumberDiv);
+    secondRow.appendChild(secondFactDiv);
+    all_numbers.appendChild(secondRow);
+
+    let thirdNumber = await fetch(`http://numbersapi.com/${num+1}?json`)
+    .then(response => response.json());
+    let thirdRow=document.createElement("div");
+    let thirdNumberDiv=document.createElement("div");
+    let thirdFactDiv=document.createElement("div");
+    thirdRow.classList.add("row3");
+    thirdNumberDiv.classList.add("number3");
+    thirdFactDiv.classList.add("fact3");
+    thirdNumberDiv.innerHTML=thirdNumber['number']
+    thirdFactDiv.innerHTML=thirdNumber.text;
+    thirdRow.appendChild(thirdNumberDiv);
+    thirdRow.appendChild(thirdFactDiv);
+    all_numbers.appendChild(thirdRow);
 }
 
 async function get_batch(num, all_numbers) {
-
-}
+    all_numbers.innerHTML="";
+    let response = await fetch(`http://numbersapi.com/${num-1}..${num+1}?json`)
+    //.then(response => response.json());
+    response.json().then((number) => {
+        for (let num in number){
+            let batchRow=document.createElement("div");
+            let batchNumberDiv=document.createElement("div");
+            let batchFactDiv=document.createElement("div");
+            batchRow.classList.add("row");
+            batchNumberDiv.classList.add("number");
+            batchFactDiv.classList.add("fact");
+            batchNumberDiv.innerHTML=num;
+            batchFactDiv.innerHTML=response.texts;
+            batchRow.appendChild(batchNumberDiv);
+            batchRow.appendChild(batchFactDiv);
+            all_numbers.appendChild(batchRow);
+        }
+    }
+)}
 
 async function clickedon() {
     let num = parseInt(document.querySelector('#number').value);
@@ -82,8 +79,3 @@ async function clickedon() {
         get_individual(num, all_numbers);
     }
 }
-
-
-window.onload = function() {
-    populatePosts();
-};
