@@ -13,8 +13,9 @@ async function get_individual(num, all_numbers) {
     let firstFactDiv=document.createElement("div");
     firstRow.classList.add("row1");
     firstNumberDiv.classList.add("number1");
-    firstFactDiv.classList.add("fact1");
+    firstFactDiv.classList = "alert alert-success"
     firstNumberDiv.innerHTML=firstNumber['number']
+    firstFactDiv.classList.add("fact1");
     firstFactDiv.innerHTML=firstNumber.text;
     firstRow.appendChild(firstNumberDiv);
     firstRow.appendChild(firstFactDiv);
@@ -27,8 +28,9 @@ async function get_individual(num, all_numbers) {
     let secondFactDiv=document.createElement("div");
     secondRow.classList.add("row2");
     secondNumberDiv.classList.add("number2");
-    secondFactDiv.classList.add("fact2");
+    secondFactDiv.classList = "alert alert-success"
     secondNumberDiv.innerHTML=secondNumber['number']
+    secondFactDiv.classList.add("fact2");
     secondFactDiv.innerHTML=secondNumber.text;
     secondRow.appendChild(secondNumberDiv);
     secondRow.appendChild(secondFactDiv);
@@ -41,8 +43,9 @@ async function get_individual(num, all_numbers) {
     let thirdFactDiv=document.createElement("div");
     thirdRow.classList.add("row3");
     thirdNumberDiv.classList.add("number3");
-    thirdFactDiv.classList.add("fact3");
+    thirdFactDiv.classList = "alert alert-success"
     thirdNumberDiv.innerHTML=thirdNumber['number']
+    thirdFactDiv.classList.add("fact3");
     thirdFactDiv.innerHTML=thirdNumber.text;
     thirdRow.appendChild(thirdNumberDiv);
     thirdRow.appendChild(thirdFactDiv);
@@ -51,24 +54,23 @@ async function get_individual(num, all_numbers) {
 
 async function get_batch(num, all_numbers) {
     all_numbers.innerHTML="";
-    let response = await fetch(`http://numbersapi.com/${num-1}..${num+1}?json`)
-    //.then(response => response.json());
-    response.json().then((number) => {
-        for (let num in number){
-            let batchRow=document.createElement("div");
-            let batchNumberDiv=document.createElement("div");
-            let batchFactDiv=document.createElement("div");
-            batchRow.classList.add("row");
-            batchNumberDiv.classList.add("number");
-            batchFactDiv.classList.add("fact");
-            batchNumberDiv.innerHTML=num;
-            batchFactDiv.innerHTML=response.texts;
-            batchRow.appendChild(batchNumberDiv);
-            batchRow.appendChild(batchFactDiv);
-            all_numbers.appendChild(batchRow);
-        }
+    let res = await fetch(`http://numbersapi.com/${num-1}..${num+1}?json`)
+     .then(response => response.json());
+    for (let number in res){
+        let batchRow=document.createElement("div");
+        let batchNum=document.createElement("div");
+        let batchFact=document.createElement("div");
+        batchRow.classList.add("batchRow");
+        batchNum.classList.add("batchNumber");
+        batchFact.classList = "alert alert-success"
+        batchNum.innerHTML=number;
+        batchFact.classList.add("batchFact");
+        batchFact.innerHTML=res[number];
+        batchRow.appendChild(batchNum);
+        batchRow.appendChild(batchFact);
+        all_numbers.appendChild(batchRow);
     }
-)}
+}
 
 async function clickedon() {
     let num = parseInt(document.querySelector('#number').value);
