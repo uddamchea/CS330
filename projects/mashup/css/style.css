@@ -1,0 +1,55 @@
+.cropped{
+    width: 100%; 
+    height: 50%; 
+    object-fit: cover;
+}
+.control{
+    display: inline-block;
+    margin: 0 50;
+    padding :9px;
+    flex: 1 100%;
+    margin-bottom: 20px;
+}
+#gotHeader{
+    width:100%;
+    height: auto;
+    text-align: center;
+    background-color: darkred;
+    color: white;
+    font-size: x-large;
+    margin-bottom: 35px;
+}
+label{
+    display: block;
+}
+
+.text{
+    font-size: x-large;
+}
+.btn-dark{
+    font-size: larger;
+    background-color: black;
+}
+
+.btn-primary{
+    width: 100%;
+    padding: 22px;
+    margin-bottom: 20px;
+    font-size: larger;
+    background-color: darkred;
+}
+#fact1aboutCharacter {
+    font-family: auto;
+}
+#fact2aboutCharacter {
+    font-family: auto;
+}
+#fact3aboutCharacter {
+    font-family: auto;
+}
+#fact4aboutCharacter {
+    font-family: auto;
+}
+#characterNumber{
+    font-family: auto;
+}
