@@ -95,8 +95,6 @@ async function get_Character(characterNum,allcharacterNum) {
     api3 = document.querySelector('#fact3aboutCharacter').innerHTML;
     history3.push(api3);
     localStorage.setItem("local_characters", JSON.stringify(history3));
-
-    
 }
 }
 
