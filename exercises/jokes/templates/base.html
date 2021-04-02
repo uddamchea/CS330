@@ -2,18 +2,19 @@
 
 <head>
     <title>Flask for Fun</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
     <div>
         <div><a href="/">Home</a></div>
         <div>
-            <h2>Pick the category, language, and number of jokes to hear</h2>
+            <h2 style="text-align:center; padding-top:20px">Pick the category, language, and number of jokes to hear</h2>
         </div>
         <form method="POST">
             <div>
                 <div>
-                    <label for="category" value="Category">Category</label>
+                    <label for="category" value="Category" style="padding:20px 0px 20px 100px;">Category</label>
                     <select name="category" id="selCat">
                         <!-- TODO: Populate categories -->
                         <option value="neutral">Neutral</option>
@@ -22,7 +23,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="language" value="Language">Language</label>
+                    <label for="language" value="Language" style="padding:20px 0px 20px 100px;">Language</label>
                     <select name="language" id="selLang">
                         <!-- TODO: Populate languages -->
                         <option value="en">en</option>
@@ -31,7 +32,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="number" value="Number">Number</label>
+                    <label for="number" value="Number" style="padding:20px 0px 20px 100px;">Number</label>
                     <select name="number" id="selNum">
                         <!-- TODO: Populate numbers -->
                         <option value="1">1</option>
@@ -42,15 +43,17 @@
             </div>
             <div>
                 <div>
-                    <button type="submit" id="btnAmuse" value="Tell me a joke">Amuse me</button>
+                    <button type="submit" id="btnAmuse" value="Tell me a joke" class="btn btn-success bnt-lg btn-block">Amuse me</button>
                 </div>
             </div>
         </form>
         <div id="jokes">
             <!-- This is a placeholder for jokes -->
             {% for item in list_of_jokes %}
-            <ul>
+            <ul style="padding:20px 0px 0px 100px;">
+
             <li>{{ item }}</li>
+
             </ul>
             {% endfor %}
         </div>
