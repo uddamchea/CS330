@@ -9,12 +9,12 @@
     <div>
         <div><a href="/">Home</a></div>
         <div>
-            <h2 style="text-align:center; padding-top:20px">Pick the category, language, and number of jokes to hear</h2>
+            <h2 style="text-align:center; padding-top:20px; padding-bottom:20px;">Pick the category, language, and number of jokes to hear</h2>
         </div>
         <form method="POST">
             <div>
-                <div>
-                    <label for="category" value="Category" style="padding:20px 0px 20px 100px;">Category</label>
+                <div style="display:inline; padding-left:380px;">
+                    <label for="category" value="Category">Category</label>
                     <select name="category" id="selCat">
                         <!-- TODO: Populate categories -->
                         <option value="neutral">Neutral</option>
@@ -22,17 +22,17 @@
                         <option value="all">All</option>
                     </select>
                 </div>
-                <div>
-                    <label for="language" value="Language" style="padding:20px 0px 20px 100px;">Language</label>
-                    <select name="language" id="selLang">
+                <div style="display:inline; padding-left:100px;">
+                    <label for="language" value="Language" style="display:inline;">Language</label>
+                    <select name="language" id="selLang" >
                         <!-- TODO: Populate languages -->
                         <option value="en">en</option>
                         <option value="de">de</option>
                         <option value="es">es</option>
                     </select>
                 </div>
-                <div>
-                    <label for="number" value="Number" style="padding:20px 0px 20px 100px;">Number</label>
+                <div style="display:inline; padding-left:100px;">
+                    <label for="number" value="Number" style="display:inline;">Number</label>
                     <select name="number" id="selNum">
                         <!-- TODO: Populate numbers -->
                         <option value="1">1</option>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div>
-                <div>
+                <div style="padding-top:30px;">
                     <button type="submit" id="btnAmuse" value="Tell me a joke" class="btn btn-success bnt-lg btn-block">Amuse me</button>
                 </div>
             </div>
@@ -50,7 +50,7 @@
         <div id="jokes">
             <!-- This is a placeholder for jokes -->
             {% for item in list_of_jokes %}
-            <ul style="padding:20px 0px 0px 100px;">
+            <ul style="padding:20px 0px 0px 200px;">
 
             <li>{{ item }}</li>
 
