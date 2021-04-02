@@ -48,7 +48,11 @@
         </form>
         <div id="jokes">
             <!-- This is a placeholder for jokes -->
-            {{ jokes }}
+            {% for item in list_of_jokes %}
+            <ul>
+            <li>{{ item }}</li>
+            </ul>
+            {% endfor %}
         </div>
     </div>
 </body>
