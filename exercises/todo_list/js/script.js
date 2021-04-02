@@ -66,6 +66,8 @@ function addRow(valueList, parent) {
 
 function removeRow() {
         $("#taskList input[type='checkbox']:checked").closest("tr").remove();
+        //var i = r.parentNode.parentNode.rowIndex;
+        //document.getElementById("taskList").deleteRow(i);
 }
 
 function populateSelect(selectId, sList) {

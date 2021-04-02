@@ -41,7 +41,7 @@ def send_joke(
 ) -> List[str]:
 
     if language=="es" and category=="chuck":
-        return(["No jokes about Chuck Norris in Spanish"])
+        return(['No kidding!'])
 
     get_jokes = pyjokes.get_jokes(language=language, category=category)
     jokeList = []

@@ -1,0 +1,66 @@
+.control{
+    display: inline-block;
+    margin: 0 84px;
+    padding :10px;
+}
+label{
+    display: block;
+}
+#getInfo{
+    width:140px;
+}
+.text{
+    font-size: x-large;
+}
+.btn-secondary{
+    font-size: larger;
+}
+#batch{
+    size:60%;
+}
+#fact1aboutCharacter {
+    padding: 22px;
+    font-size: x-large;
+    margin: auto;
+    font-family: auto;
+    width: 1080px;
+    border: 2px solid;
+    margin-bottom: 20px;
+}
+#fact2aboutCharacter {
+    padding: 22px;
+    font-size: x-large;
+    margin: auto;
+    font-family: auto;
+    width: 1080px;
+    border: 2px solid;
+    margin-bottom: 20px;
+}
+#fact3aboutCharacter {
+    padding: 22px;
+    font-size: x-large;
+    margin: auto;
+    font-family: auto;
+    width: 1080px;
+    border: 2px solid;
+    margin-bottom: 20px;
+}
+#fact4aboutCharacter {
+    padding: 22px;
+    font-size: x-large;
+    margin: auto;
+    font-family: auto;
+    width: 1080px;
+    border: 2px solid;
+    margin-bottom: 20px;
+}
+#characterNumber{
+    padding: 22px;
+    font-size: x-large;
+    margin: auto;
+    font-family: auto;
+    width: 1080px;
+    border: 2px solid;
+    margin-bottom: 20px;
+
+}
