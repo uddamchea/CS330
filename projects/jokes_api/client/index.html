@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>Joke</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        <div>
+            <h2 style="text-align:center; padding-top:20px; padding-bottom:20px;">Want to Hear a Joke?</h2>
+        </div>
+        <form method="POST">
+            <div>
+                <div style="display:inline-block; padding-left:150px;">
+                    <label for="category" value="Category">Category</label>
+                    <select name="category" id="selCat" class="btn btn-info">
+                        <option value="neutral">Neutral</option>
+                        <option value="chuck">Chuck Norris</option>
+                        <option value="all">All</option>
+                    </select>
+                </div>
+                <div style="display:inline-block; padding-left:40px;">
+                    <label for="language" value="Language" style="display:inline;">Language</label>
+                    <select name="language" id="selLang" class="btn btn-info">
+                        <option value="en">en</option>
+                        <option value="de">de</option>
+                        <option value="es">es</option>
+                    </select>
+                </div>
+                <div style="display:inline-block; padding-left:40px;">
+                    <label for="number" value="Number" style="display:inline;">Number</label>
+                    <select name="number" id="selNum" class="btn btn-info">
+                        <option value="1">1</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+
+                <div style="display:inline-block; padding-left:50px;">
+                <input type="checkbox" id="specificJoke"  onmousedown="this.form.jokeID.disabled=this.checked">
+                <label for="specificJoke"> Check for specific joke </label>
+                </div>
+
+                <div style="display:inline; padding-left:80px;">
+                <label for="jokeID"> ID </label>
+                <input type="number" id="jokeID" disabled>
+                </div>
+
+            <div>
+                <div style="padding-top:30px;">
+                    <button type="submit" id="btnAmuse" value="Tell me a joke" class="btn btn-success bnt-lg btn-block">Let's Hear It</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
