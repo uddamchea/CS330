@@ -5,7 +5,7 @@ Faker API
 
 import json, pyjokes
 from flask import Flask, Response, jsonify
-
+from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 
 @app.route("/api/v1/jokes/<category>/<language>/<int:number>")
@@ -15,31 +15,26 @@ def get_jokes(category, language, number):
         return "No Jokes about Chuck Norris in Spanish!"
     else:
         allJokes = pyjokes.get_jokes(language=language, category=category)
-        jokeDict = {}
-
-        for m in range(len(allJokes)):
-            jokeDict[m] = allJokes[m]
-        for n in range(number):
-            newDict[n] = jokeDict[n]
-
-        jsonify(newDict).headers["Access-Control-Allow-Origin"] = "*"
-        jsonify(newDict).headers["Content-Type"] = "application/json"
-        return jsonify(newDict)
+        for m in range(number):
+            newDict[m] = allJokes[m]
+        joke=Response(json.dumps(newDict))
+        joke.headers["Access-Control-Allow-Origin"] = "*"
+        joke.headers["Content-Type"] = "application/json"
+        return joke
 
 @app.route("/api/v1/jokes/<category>/<language>/<int:number>/<int:id>")
 def get_specific(category, language, number, id):
-    if language== "es" and category== "chuck":
-        return "No Kidding!"
-
+    jokeDict = {}
+    if language == "es" and category == "chuck":
+        return "No Jokes about Chuck Norris in Spanish!"
     else:
         allJokes = pyjokes.get_jokes(language=language, category=category)
-        jokeDict = {}
-
-        for i in range(len(allJokes)):
-            jokeDict[i] = allJokes[i]
-
-        allJokes = {id:jokeDict[id]}
-        return jsonify(allJokes)
+        for n in range(len(allJokes)):
+            jokeDict[n] = allJokes[n]
+        joke = Response({id:jokeDict[id]})
+        joke.headers["Access-Control-Allow-Origin"] = "*"
+        joke.headers["Content-Type"] = "application/json"
+        return joke
 
 if __name__ == "__main__":number
 app.run("0.0.0.0")
