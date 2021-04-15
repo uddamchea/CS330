@@ -36,5 +36,5 @@ def get_specific(category, language, number, id):
         joke.headers["Content-Type"] = "application/json"
         return joke
 
-if __name__ == "__main__":number
-app.run("0.0.0.0")
+if __name__ == "__main__":
+    app.run()
