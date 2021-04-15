@@ -3,9 +3,9 @@
 Faker API
 """
 
-import json, pyjokes
+import pyjokes
+import json
 from flask import Flask, Response, jsonify
-from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 
 @app.route("/api/v1/jokes/<category>/<language>/<int:number>")
