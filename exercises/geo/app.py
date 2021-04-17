@@ -11,7 +11,7 @@ CONTINENT = []
 CACHE = {}
 
 
-def get_data(host: str, port: int, user: str, dbname: str, query: str) -> list:
+def get_data_from_db(host: str, port: int, user: str, dbname: str, query: str) -> list:
     db = records.Database(f"postgresql://{user}:@{host}:{port}/{dbname}")
     rows = db.query(query)
     return rows
@@ -29,7 +29,7 @@ def index():
         if country in CACHE:
             result = CACHE[country]
         else:
-            result = get_data(
+            result = get_data_from_db(
                 host="localhost",
                 port=2345,
                 user="cheara01",
@@ -44,7 +44,7 @@ def index():
         if region in CACHE:
             result = CACHE[region]
         else:
-            result = get_data(
+            result = get_data_from_db(
                 host="localhost",
                 port=2345,
                 user="cheara01",
@@ -59,7 +59,7 @@ def index():
         if continent in CACHE:
             result = CACHE[continent]
         else:
-            result = get_data(
+            result = get_data_from_db(
                 host="localhost",
                 port=2345,
                 user="cheara01",
@@ -74,7 +74,7 @@ def search(scope: str):
     if scope == "country":
         global COUNTRY
         if not COUNTRY:
-            COUNTRY = get_data(
+            COUNTRY = get_data_from_db(
                 host="localhost",
                 port=2345,
                 user="cheara01",
@@ -86,7 +86,7 @@ def search(scope: str):
     elif scope == "region":
         global REGION
         if not REGION:
-            REGION = get_data(
+            REGION = get_data_from_db(
                 host="localhost",
                 port=2345,
                 user="cheara01",
@@ -98,7 +98,7 @@ def search(scope: str):
     elif scope == "continent":
         global CONTINENT
         if not CONTINENT:
-            CONTINENT = get_data(
+            CONTINENT = get_data_from_db(
                 host="localhost",
                 port=2345,
                 user="cheara01",
