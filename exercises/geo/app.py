@@ -11,11 +11,10 @@ CONTINENT = []
 CACHE = {}
 
 
-def get_data_from_db(host: str, port: int, user: str, dbname: str, query: str) -> list:
+def get_data_from_db(query: str, host: str, port: int, user: str, dbname: str) -> list:
     db = records.Database(f"postgresql://{user}:@{host}:{port}/{dbname}")
     rows = db.query(query)
     return rows
-
 
 @app.route("/", methods=["GET", "POST"])
 def index():
