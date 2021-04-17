@@ -1,12 +1,13 @@
 <html>
   <head>
+    <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" media="screen" />
   </head>
   <body>
     <div>
       <div>
-        <div><a href="/country">Country info</a></div>
-        <div><a href="/region">Region info</a></div>
-        <div><a href="/continent">Continent info</a></div>
+        <div style="float:left; width:33%%; text-align:left; margin:2% 10% 5% 5%"><a href="/country">Country info</a></div>
+        <div style="float:left; width:33%%; text-align:center; margin:2% 10% 5% 5%"><a href="/region">Region info</a></div>
+        <div style="float:left; width:33%%; text-align:right; margin:2% 40% 5% 5%"><a href="/continent">Continent info</a></div>
       </div>
     </div>
     {% block content %} {% endblock %}
