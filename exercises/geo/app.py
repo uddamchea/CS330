@@ -10,10 +10,12 @@ REGION = []
 CONTINENT = []
 CACHE = {}
 
-def get_data_from_db(host: str, port: int, user:str, dbname:str, query: str) -> list:
+
+def get_data(host: str, port: int, user: str, dbname: str, query: str) -> list:
     db = records.Database(f"postgresql://{user}:@{host}:{port}/{dbname}")
     rows = db.query(query)
     return rows
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -21,21 +23,34 @@ def index():
 
     if request.method == "GET":
         return render_template("index.html")
+        
     if request.form.get("country"):
         country = request.form.get("country")
         if country in CACHE:
             result = CACHE[country]
         else:
-            result = get_data_from_db(host="localhost", port=2345, user="cheara01", dbname="world", query=f"select * from country where code = '{country}';",)
+            result = get_data(
+                host="localhost",
+                port=2345,
+                user="cheara01",
+                dbname="world",
+                query=f"select * from country where code = '{country}';",
+            )
             CACHE[country] = result
         return render_template("result.html", rows=result)
-        
+
     if request.form.get("region"):
         region = request.form.get("region")
         if region in CACHE:
             result = CACHE[region]
         else:
-            result = get_data_from_db(host="localhost", port=2345, user="cheara01", dbname="world", query=f"select * from country where region = '{region}';",)
+            result = get_data(
+                host="localhost",
+                port=2345,
+                user="cheara01",
+                dbname="world",
+                query=f"select * from country where region = '{region}';",
+            )
             CACHE[region] = result
         return render_template("result.html", rows=result)
 
@@ -44,31 +59,50 @@ def index():
         if continent in CACHE:
             result = CACHE[continent]
         else:
-            result = get_data_from_db(host="localhost", port=2345, user="cheara01", dbname="world", query=f"select * from country where continent = '{continent}';",)
+            result = get_data(
+                host="localhost",
+                port=2345,
+                user="cheara01",
+                dbname="world",
+                query=f"select * from country where continent = '{continent}';",
+            )
             CACHE[continent] = result
-
         return render_template("result.html", rows=result)
-    # retrieve data from the database based on the selected option and present it to the user
 
 @app.route("/<string:scope>")
 def search(scope: str):
     if scope == "country":
         global COUNTRY
         if not COUNTRY:
-            COUNTRY = get_data_from_db(host="localhost", port=2345, user="cheara01", dbname="world", query="select code, name from country;",)
+            COUNTRY = get_data(
+                host="localhost",
+                port=2345,
+                user="cheara01",
+                dbname="world",
+                query="select code, name from country;",
+        )
         return render_template("country.html", options=COUNTRY)
 
     elif scope == "region":
         global REGION
         if not REGION:
-            REGION = get_data_from_db(host="localhost", port=2345, user="cheara01", dbname="world", query="select distinct region from country;",)
+            REGION = get_data(
+                host="localhost",
+                port=2345,
+                user="cheara01",
+                dbname="world",
+                query="select distinct region from country;",
+        )
         return render_template("region.html", options=REGION)
 
     elif scope == "continent":
         global CONTINENT
         if not CONTINENT:
-            CONTINENT = get_data_from_db(host="localhost", port=2345, user="cheara01", dbname="world", query="select distinct continent from country;",)
+            CONTINENT = get_data(
+                host="localhost",
+                port=2345,
+                user="cheara01",
+                dbname="world",
+                query="select distinct continent from country;",
+        )
         return render_template("continent.html", options=CONTINENT)
-
-# if __name__ == "__main__":
-#     app.run()
