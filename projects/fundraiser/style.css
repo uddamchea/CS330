@@ -1,0 +1,98 @@
+h2{
+    text-align: center;
+}
+
+#purchaser{
+    display: inline-block;
+}
+
+#purchaser-input{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+#date{
+    display:inline-block;
+    float: right;
+}
+
+#date-input{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+.left-table{
+    margin:3%;
+    float: left;
+}
+
+.right-table{
+    margin: 3%;
+    float: right;
+}
+
+#table, td, th{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#awInput, #aceInput, #caseyInput, #farewayInput, #fiskInput, #dollarInput, #kwikInput, #pintersInput, #subwayInput, #sueInput, #atomicInput, #specialInput{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    /* border-bottom: 1px solid grey; */
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+#awQty, #aceQty, #caseyQty, #farewayQty, #fiskQty, #dollarQty, #kwikQty, #pintersQty, #subwayQty, #sueQty, #atomicQty, #specialQty{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    /* border-bottom: 1px solid grey; */
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+#awAmount, #aceAmount, #caseyAmount, #farewayAmount, #fiskAmount, #dollarAmount, #kwikAmount, #pintersAmount, #subwayAmount, #sueAmount, #atomicAmount, #specialAmount{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    /* border-bottom: 1px solid grey; */
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+
+#discretion-table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+#center-th{
+    text-align: center;
+}
+
+#name{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+#qty{
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+#tuition, #donation, #adopt{
+    margin: 2px;
+}

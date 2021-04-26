@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <link rel="stylesheet" href="style.css">
+        <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" media="screen" />
+        <script src="script.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <h2>Scrip Order Form</h2>
+        </div>
+
+        <div class="top-form">
+            <form>
+                <div id="purchaser"> Purchaser: <input type = "text" id="purchaser-input" maxlength="26" required></div>
+                <div id="date"> Date: <input type = "date" id="date-input" required></div>
+            </form>
+        </div>
+
+            <form class="left-table" onkeyup="calculate()">
+                <table id="table" class="mui-table">
+                    <thead>
+                        <th>Merchant</th>
+                        <th>Denom</th>
+                        <th></th>
+                        <th>Qty</th>
+                        <th>Amount</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="1"><b>A&W/LIS 10%</b><br>(Sold as LIS Card)</td>
+                            <td><input type = "text" class="x" id="awInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" class="y" id="awQty" maxlength="4"></td>
+                            <td><input class = "z" id="awAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>ACE 10%</b></td>
+                            <td><input type = "text" class = "x" id="aceInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" class = "y" id="aceQty" maxlength="4"></td>
+                            <td><input class = "z" id="aceAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Casey's 3%</b></td>
+                            <td><input type = "text" class = "x" id="caseyInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" class = "y" id="caseyQty" maxlength="4"></td>
+                            <td><input class = "z" id="caseyAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Fareway 3%</b></td>
+                            <td><input type = "text" id="farewayInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="farewayQty" maxlength="4"></td>
+                            <td><input id="farewayAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Fisk's 5%</b></td>
+                            <td><input type = "text" id="fiskInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="fiskQty" maxlength="4"></td>
+                            <td><input id="fiskAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Dollar Fresh 3%</b></td>
+                            <td><input type = "text" id="dollarInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="dollarQty" maxlength="4"></td>
+                            <td><input id="dollarAmount" type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <form class="right-table">
+                <table id="table" class="mui-table">
+                    <thead>
+                        <th>Merchant</th>
+                        <th>Denom</th>
+                        <th></th>
+                        <th>Qty</th>
+                        <th>Amount</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="1"><b>Kwik Star 5%**</b></td>
+                            <td><input type = "text" id="kwikInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="kwikQty" maxlength="4"></td>
+                            <td><input id="kwikAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Pinters 3%</b></td>
+                            <td><input type = "text" id="pintersInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="pintersQty" maxlength="4"></td>
+                            <td><input id="pintersAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Subway 5%</b></td>
+                            <td><input type = "text" id="subwayInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="subwayQty" maxlength="4"></td>
+                            <td><input id="subwayAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Sue-Z-Q's 10%</b></td>
+                            <td><input type = "text" id="sueInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="sueQty" maxlength="4"></td>
+                            <td><input id="sueAmount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Atomic 5%</b></td>
+                            <td><input type = "text" id="atomicInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="atomicQty" maxlength="4"></td>
+                            <td><input id="atomicAmount" type="text"></td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="1"><b><u>SPECIAL</b></u><br><b><u>ORDERS</b></u></br></td>
+                            <td><input type = "text" id="specialInput" maxlength="3"></td>
+                            <td>x</td>
+                            <td><input type = "text" id="specialQty" maxlength="4"></td>
+                            <td><input id="specialAmount" type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <form class="bottom-form">
+                <table id="discretion-table" class="mui-table">
+                    <thead>
+                        <th colspan="3" id="center-th"><b>Purchaser Discretion (Choose only one)</b></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" name="radioBtn"><b>  Tuition Credit</b>
+                            <br><b>  for:  <input type="text" id="name" maxlength="26"></b></br>
+                            <br></br>
+                            (List student or family above-<u>Credit applied to following 
+                            <br>  year's tution annually</u> in July.<u>No Refunds</u>-Unused credit</br> 
+                            can be applied to another student's tuition or donated.)
+                            </td>
+                            <td><input type="radio" name="radioBtn"><b>  Donation to</b>
+                            <br></br>
+                            <br></br>
+                            <br><b>General Fund</b></br>
+                            </td>
+                            <td><input type="radio" name="radioBtn"><b>  Adopt a Student Fund</b>
+                            <br></br>
+                            <br>Directed towards the tuition of</br>
+                            students enrolled at NAME in
+                            <br>need of tuition assistance.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+    </body>
+</html>
