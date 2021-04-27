@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset=utf-8 />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="style.css">
         <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" media="screen" />
         <script src="script.js"></script>
     </head>
 
     <body>
-        <div>
-            <h2>Scrip Order Form</h2>
-        </div>
+        <h2>Scrip Order Form</h2>
 
-        <div class="top-form">
+        <div class="form">
             <form>
                 <div id="purchaser"> Purchaser: <input type = "text" id="purchaser-input" maxlength="26" required></div>
                 <div id="date"> Date: <input type = "date" id="date-input" required></div>
-            </form>
         </div>
-
-            <form class="left-table" onkeyup="calculate()">
                 <table id="table" class="mui-table">
                     <thead>
                         <th>Merchant</th>
@@ -31,117 +29,108 @@
                     <tbody>
                         <tr>
                             <td rowspan="1"><b>A&W/LIS 10%</b><br>(Sold as LIS Card)</td>
-                            <td><input type = "text" class="x" id="awInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" class="y" id="awQty" maxlength="4"></td>
-                            <td><input class = "z" id="awAmount" type="text"></td>
+                            <td><input type = "text" id="awInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="awQty" maxlength="4" onkeyup="calculateAW()"></td>
+                            <td><input id="awAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>ACE 10%</b></td>
-                            <td><input type = "text" class = "x" id="aceInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" class = "y" id="aceQty" maxlength="4"></td>
-                            <td><input class = "z" id="aceAmount" type="text"></td>
+                            <td><input type = "text" id="aceInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="aceQty" maxlength="4" onkeyup="calculateACE()"></td>
+                            <td><input id="aceAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>Casey's 3%</b></td>
-                            <td><input type = "text" class = "x" id="caseyInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" class = "y" id="caseyQty" maxlength="4"></td>
-                            <td><input class = "z" id="caseyAmount" type="text"></td>
+                            <td><input type = "text" id="caseyInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="caseyQty" maxlength="4" onkeyup="calculateCASEY()"></td>
+                            <td><input id="caseyAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>Fareway 3%</b></td>
                             <td><input type = "text" id="farewayInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="farewayQty" maxlength="4"></td>
-                            <td><input id="farewayAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="farewayQty" maxlength="4" onkeyup="calculateFARE()"></td>
+                            <td><input id="farewayAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>Fisk's 5%</b></td>
                             <td><input type = "text" id="fiskInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="fiskQty" maxlength="4"></td>
-                            <td><input id="fiskAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="fiskQty" maxlength="4" onkeyup="calculateFISK()"></td>
+                            <td><input id="fiskAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>Dollar Fresh 3%</b></td>
                             <td><input type = "text" id="dollarInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="dollarQty" maxlength="4"></td>
-                            <td><input id="dollarAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="dollarQty" maxlength="4" onkeyup="calculateDOLLAR()"></td>
+                            <td><input id="dollarAmount" class="amount" type="text"></td>
                         </tr>
-                    </tbody>
-                </table>
-            </form>
-
-            <form class="right-table">
-                <table id="table" class="mui-table">
-                    <thead>
-                        <th>Merchant</th>
-                        <th>Denom</th>
-                        <th></th>
-                        <th>Qty</th>
-                        <th>Amount</th>
-                    </thead>
-                    <tbody>
+                    
                         <tr>
                             <td rowspan="1"><b>Kwik Star 5%**</b></td>
                             <td><input type = "text" id="kwikInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="kwikQty" maxlength="4"></td>
-                            <td><input id="kwikAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="kwikQty" maxlength="4"  onkeyup="calculateKWIK()"></td>
+                            <td><input id="kwikAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>Pinters 3%</b></td>
                             <td><input type = "text" id="pintersInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="pintersQty" maxlength="4"></td>
-                            <td><input id="pintersAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="pintersQty" maxlength="4" onkeyup="calculatePINTERS()"></td>
+                            <td><input id="pintersAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>Subway 5%</b></td>
                             <td><input type = "text" id="subwayInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="subwayQty" maxlength="4"></td>
-                            <td><input id="subwayAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="subwayQty" maxlength="4" onkeyup="calculateSUB()"></td>
+                            <td><input id="subwayAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>Sue-Z-Q's 10%</b></td>
                             <td><input type = "text" id="sueInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="sueQty" maxlength="4"></td>
-                            <td><input id="sueAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="sueQty" maxlength="4" onkeyup="calculateSUE()"></td>
+                            <td><input id="sueAmount" class="amount" type="text"></td>
                         </tr>
                         
                         <tr>
                             <td rowspan="1"><b>Atomic 5%</b></td>
                             <td><input type = "text" id="atomicInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="atomicQty" maxlength="4"></td>
-                            <td><input id="atomicAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="atomicQty" maxlength="4" onkeyup="calculateATOMIC()"></td>
+                            <td><input id="atomicAmount" class="amount" type="text"></td>
                         </tr>
 
                         <tr>
-                            <td rowspan="1"><b><u>SPECIAL</b></u><br><b><u>ORDERS</b></u></br></td>
+                            <td rowspan="1"><b><u>SPECIAL</b></u><input type = "text" id="specialMerchant"><br><b><u>ORDERS</b></u></br></td>
                             <td><input type = "text" id="specialInput" maxlength="3"></td>
-                            <td>x</td>
-                            <td><input type = "text" id="specialQty" maxlength="4"></td>
-                            <td><input id="specialAmount" type="text"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" id="specialQty" maxlength="4" onkeyup="calculateSPECIAL()"></td>
+                            <td><input id="specialAmount" class="amount" type="text"></td>
                         </tr>
                     </tbody>
                 </table>
-            </form>
 
-            <form class="bottom-form">
+                <div class="total">
+                    <b>Total Cards   </b><input type="text" class="totalCards" id="totalCards" readonly>
+                    <b>Total Due   </b><input type="text" class="totalDue" id="totalDue" readonly>
+                    <b>Purchaser Discretion (1%)  </b><input type="text" class="amount" id="purchaserDiscretion" readonly>
+                </div>
+
                 <table id="discretion-table" class="mui-table">
                     <thead>
                         <th colspan="3" id="center-th"><b>Purchaser Discretion (Choose only one)</b></th>

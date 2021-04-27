@@ -2,6 +2,10 @@ h2{
     text-align: center;
 }
 
+#multiplication, #totalCards, #totalDue, #purchaserDiscretion{
+    text-align: center;
+}
+
 #purchaser{
     display: inline-block;
 }
@@ -23,16 +27,6 @@ h2{
     outline: 0;
     background: transparent;
     border-bottom: 1px solid black;
-}
-
-.left-table{
-    margin:3%;
-    float: left;
-}
-
-.right-table{
-    margin: 3%;
-    float: right;
 }
 
 #table, td, th{
@@ -70,10 +64,35 @@ h2{
     width: 50px;
 }
 
+#table{
+    margin-top: 2%;
+    width: 100%;
+}
+
+#specialMerchant{
+    margin-left: 15%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+.total{
+    margin-top: 5%;
+    text-align: center;
+    width: 100%;
+}
+
+#totalCards, #totalDue, #purchaserDiscretion{
+    width: 100px;
+    height:30px;
+    border: 3px solid black;
+}
 
 #discretion-table{
     width:100%;
     border-collapse: collapse;
+    margin-top: 5%;
 }
 
 #center-th{
