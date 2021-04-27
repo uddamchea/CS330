@@ -21,17 +21,20 @@ function calculateTotalDue(){
         totalDue += Number($(this).val());
     });
     $('.totalDue').val(totalDue)}
-    
+
 var refreshTime;
 $(document).ready(function(){
-    refreshTime = setInterval("calculateTotalDue()", 500);
-});
+    refreshTime = setInterval("calculateTotalDue()", 500);});
 
 function calculateDis(){
-    var qty = document.getElementById("totalDue").value; 
-    document.getElementById("purchaserDiscretion").value = parseInt(qty)*0.01;
-}
+    ($('.disAmount').val($('.totalDue').val()* 0.01)).toFixed(3);}
 
+var refreshTime;
+$(document).ready(function(){
+    refreshTime = setInterval("calculateDis()", 500);});
+    
+
+    
 function calculateAW(){
     var denom = document.getElementById("awInput").value;
     var qty = document.getElementById("awQty").value; 
