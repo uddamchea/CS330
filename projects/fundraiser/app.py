@@ -49,10 +49,10 @@ class Client(db.Model):
     def __repr__(self):
         return f"Client('{self.merchant}', '{self.date}', '{self.name}', '{self.denom}', '{self.qty}', '{self.amount}', '{self.donateTo}')"
 
-class ClientSchema(mm.SQLAlchemySchema):
-    class Meta:
-        model = Client
-        sqla_session = db.session
+# class ClientSchema(mm.SQLAlchemySchema):
+#     class Meta:
+#         model = Client
+#         sqla_session = db.session
 
 db.create_all()
 db.session.commit()
