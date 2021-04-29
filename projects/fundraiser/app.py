@@ -1,7 +1,47 @@
 from datetime import datetime
-from config import app, db, mm
-from models import Client
 from flask import Flask, request, render_template, url_for, redirect
+
+"""App config file"""
+
+import os
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
+
+app = Flask(__name__)
+
+this_dir = os.path.abspath(os.path.dirname(__file__))
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////" + os.path.join(this_dir, "fundraiser.sqlite3")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_ECHO"] = True
+
+db = SQLAlchemy(app)
+mm = Marshmallow(app)
+
+"""Data model"""
+
+class Client(db.Model):
+    __tablename__ = "fundraiser"
+    __table_args__ = {'extend_existing': True}
+    id=db.Column(db.Integer, primary_key=True, autoincrement=True)
+    merchant = db.Column(db.String)
+    date = db.Column(db.String, default=datetime.utcnow)
+    name = db.Column(db.String)
+    denom = db.Column(db.Integer)
+    qty = db.Column(db.Integer)
+    amount = db.Column(db.Integer)
+    donateTo = db.Column(db.String)
+    def __repr__(self):
+        return f"Client('{self.merchant}', '{self.date}', '{self.name}', '{self.denom}', '{self.qty}', '{self.amount}', '{self.donateTo}')"
+
+class ClientSchema(mm.SQLAlchemySchema):
+    class Meta:
+        model = Client
+        sqla_session = db.session
+
+db.create_all()
+db.session.commit()
+
 
 db.create_all()
 db.session.commit()
