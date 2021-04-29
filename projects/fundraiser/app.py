@@ -8,12 +8,25 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
+# app = Flask(__name__)
+
+# this_dir = os.path.abspath(os.path.dirname(__file__))
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////" + os.path.join(this_dir, "fundraiser.sqlite3")
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# app.config["SQLALCHEMY_ECHO"] = True
+
 app = Flask(__name__)
 
-this_dir = os.path.abspath(os.path.dirname(__file__))
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////" + os.path.join(this_dir, "fundraiser.sqlite3")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_ECHO"] = True
+@app.route("/")
+def index():
+    return render_template("index.html")
+import sqlite3
+
+conn = sqlite3.connect('database.db')
+print ("Opened database successfully");
+# conn.execute('CREATE TABLE fundraiser (id INT, merchant TEXT, date TEXT, name TEXT, denom INT, qty INT, amount INT, donateTo TEXT)')
+# print ("Table created successfully");
+# conn.close()
 
 db = SQLAlchemy(app)
 mm = Marshmallow(app)
@@ -107,7 +120,7 @@ def contribution():
 
        kwikInput=request.form.get("kwikInput")
        kwikQty=request.form.get("kwikQty")
-       kwikAMount=request.form.get("kwikAMount")
+       kwikAmount=request.form.get("kwikAmount")
        donation=Client(merchant="Kwik Star", date=date, name=name, denom=kwikInput, qty=kwikQty, amount=kwikAmount, donateTo=donateTo1)
        db.session.add(donation)
        db.session.commit()
