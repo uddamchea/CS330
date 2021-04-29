@@ -7,6 +7,9 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+import sqlite3 as sql
+import sqlite3
+
 
 # app = Flask(__name__)
 
@@ -20,7 +23,6 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return render_template("index.html")
-import sqlite3
 
 conn = sqlite3.connect('database.db')
 print ("Opened database successfully");
