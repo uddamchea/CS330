@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+   <body>
+   
+      <table border = 1 style="text-align: center; widht:100%;">
+         <thead>
+            <td>Merchant</td>
+            <td>Date</td>
+            <td>Denomination</td>
+            <td>Quantity</td>
+            <td>Amount</td>
+            <td>Name</td>
+            <td>Fund type</td>
+         </thead>
+         
+        {% for a in range(context|count)%}
+            <tr>
+           
+               <td>{{context[a].merchant}}}</td>
+               <td>{{context[a].date}}</td>
+               <td>{{context[a].denom}}</td>
+               <td>{{context[a].qty}}</td>	
+               <td>{{context[a].amount}}</td>
+               <td>{{context[a].name}}</td>
+               <td>{{context[a].donateTo}}</td>
+                {% endfor %}
+            </tr>
+        
+      </table>
+      
+      <a href = "/">Go back to form</a>
+      
+   </body>
+</html>

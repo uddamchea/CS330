@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" media="screen" />
+        <style>
+
+h2, h3{
+    text-align: center;
+}
+
+#multiplication, #totalCards, #totalDue, #purchaserDiscretion{
+    text-align: center;
+}
+
+#purchaser{
+    display: inline-block;
+}
+
+#purchaser-input{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+#date{
+    display:inline-block;
+    float: right;
+}
+
+#date-input{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+#table, td, th{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#awInput, #aceInput, #caseyInput, #farewayInput, #fiskInput, #dollarInput, #kwikInput, #pintersInput, #subwayInput, #sueInput, #atomicInput, #specialInput{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    /* border-bottom: 1px solid grey; */
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+#awQty, #aceQty, #caseyQty, #farewayQty, #fiskQty, #dollarQty, #kwikQty, #pintersQty, #subwayQty, #sueQty, #atomicQty, #specialQty{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    /* border-bottom: 1px solid grey; */
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+#awAmount, #aceAmount, #caseyAmount, #farewayAmount, #fiskAmount, #dollarAmount, #kwikAmount, #pintersAmount, #subwayAmount, #sueAmount, #atomicAmount, #specialAmount{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    /* border-bottom: 1px solid grey; */
+    text-align: center;
+    height: 50px;
+    width: 50px;
+}
+
+#table{
+    margin-top: 2%;
+    width: 100%;
+}
+
+#specialMerchant{
+    margin-left: 15%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+.total{
+    margin-top: 5%;
+    text-align: center;
+    width: 100%;
+}
+
+#totalCards, #totalDue, #purchaserDiscretion{
+    width: 100px;
+    height:30px;
+    border: 3px solid black;
+}
+
+#discretion-table{
+    width:100%;
+    border-collapse: collapse;
+    margin-top: 5%;
+}
+
+#center-th{
+    text-align: center;
+}
+
+#name{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+#qty{
+    border: 0;
+    outline: 0;
+    background: transparent;
+}
+
+#tuition, #donation, #adopt{
+    margin: 2px;
+}
+
+#submitBtn{
+    margin-top: 1%;
+    float: right;
+}
+
+#printBtn{
+    margin-top: 1%;
+    float: left;
+}
+
+#backHome{
+    text-align: center;
+}
+        </style>
+    </head>
+
+    <body>
+        <h2>Scrip Order Form</h2>
+
+        <div class="form">
+            <form action="{{url_for('contribution')}}" method="POST">
+                <div id="purchaser"> Purchaser: <input type = "text" name="purchaser-input" id="purchaser-input" maxlength="26" required></div>
+                <div id="date"> Date: <input type = "date" name="date-input" id="date-input" required></div>
+        </div>
+                <table id="table" class="mui-table">
+                    <thead>
+                        <th>Merchant</th>
+                        <th>Denomination</th>
+                        <th></th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="1"><b>A&W/LIS 10%</b><br>(Sold as LIS Card)</td>
+                            <td><input type = "text" name="awInput" id="awInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" name="awQty" id="awQty" maxlength="4" onkeyup="calculateAW()"></td>
+                            <td><input name="awAmount" id="awAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>ACE 10%</b></td>
+                            <td><input type = "text" name="aceInput" id="aceInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" class="qty" name="aceQty" id="aceQty" maxlength="4" onkeyup="calculateACE()"></td>
+                            <td><input id="aceAmount" name="aceAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Casey's 3%</b></td>
+                            <td><input type = "text" name="caseyInput" id="caseyInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="aceQty" class="qty" id="caseyQty" maxlength="4" onkeyup="calculateCASEY()"></td>
+                            <td><input id="caseyAmount" name="aceAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Fareway 3%</b></td>
+                            <td><input type = "text" name="farewayInput" id="farewayInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="farewayQty" class="qty" id="farewayQty" maxlength="4" onkeyup="calculateFARE()"></td>
+                            <td><input id="farewayAmount" name="farewayAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Fisk's 5%</b></td>
+                            <td><input type = "text" name="fiskInput" id="fiskInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="fiskQty" class="qty" id="fiskQty" maxlength="4" onkeyup="calculateFISK()"></td>
+                            <td><input id="fiskAmount" name="fiskAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Dollar Fresh 3%</b></td>
+                            <td><input type = "text" name="dollarInput" id="dollarInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="dollarQty" class="qty" id="dollarQty" maxlength="4" onkeyup="calculateDOLLAR()"></td>
+                            <td><input id="dollarAmount" name="dollarAmount" class="amount" type="text"></td>
+                        </tr>
+                    
+                        <tr>
+                            <td rowspan="1"><b>Kwik Star 5%**</b></td>
+                            <td><input type = "text" name="kwikInput" id="kwikInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="kwikQty" class="qty" id="kwikQty" maxlength="4"  onkeyup="calculateKWIK()"></td>
+                            <td><input id="kwikAmount" name="kwikAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Pinters 3%</b></td>
+                            <td><input type = "text" name="pintersInput" id="pintersInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="pintersQty" class="qty" id="pintersQty" maxlength="4" onkeyup="calculatePINTERS()"></td>
+                            <td><input id="pintersAmount" name="pintersAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Subway 5%</b></td>
+                            <td><input type = "text" name="subwayInput" id="subwayInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="subwayQty" class="qty" id="subwayQty" maxlength="4" onkeyup="calculateSUB()"></td>
+                            <td><input id="subwayAmount" name="subwayAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Sue-Z-Q's 10%</b></td>
+                            <td><input type = "text" name="sueInput" id="sueInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="sueQty" class="qty" id="sueQty" maxlength="4" onkeyup="calculateSUE()"></td>
+                            <td><input id="sueAmount" name="sueAmount" class="amount" type="text"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td rowspan="1"><b>Atomic 5%</b></td>
+                            <td><input type = "text" name="atomicInput" id="atomicInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="atomicQty" class="qty" id="atomicQty" maxlength="4" onkeyup="calculateATOMIC()"></td>
+                            <td><input id="atomicAmount" name="atomicAmount" class="amount" type="text"></td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="1"><b><u>SPECIAL</b></u><input type = "text" id="specialMerchant"><br><b><u>ORDERS</b></u></br></td>
+                            <td><input type = "text" name="specialInput" id="specialInput" maxlength="3"></td>
+                            <td id="multiplication">x</td>
+                            <td><input type = "text" name="specialQty" class="qty" id="specialQty" maxlength="4" onkeyup="calculateSPECIAL()"></td>
+                            <td><input id="specialAmount" name="specialAmount" class="amount" type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="total">
+                    <b>Total Cards   </b><input type="text" class="totalCards" name="totalCards" id="totalCards" readonly>
+                    <b>Total Due   </b><input type="text" class="totalDue" name="totalDue" id="totalDue" readonly>
+                    <b>Purchaser Discretion (1%)  </b><input type="text" name="purchaserDiscretion" class="disAmount" id="purchaserDiscretion" readonly>
+                </div>
+
+                <table id="discretion-table" class="mui-table">
+                    <thead>
+                        <th colspan="3" id="center-th"><b>Purchaser Discretion (Choose only one)</b></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="tuition"><b>  Tuition Credit</b>
+                            <br><b>  for:  <input type="text" name="name" id="name" maxlength="26"></b></br>
+                            <br></br>
+                            (List student or family above-<u>Credit applied to following 
+                            <br>  year's tution annually</u> in July.<u>No Refunds</u>-Unused credit</br> 
+                            can be applied to another student's tuition or donated.)
+                            </td>
+                            <td><input type="checkbox" name="donationTo"><b>  Donation to</b>
+                            <br></br>
+                            <br></br>
+                            <br><b>General Fund</b></br>
+                            </td>
+                            <td><input type="checkbox" name="adopt"><b>  Adopt a Student Fund</b>
+                            <br></br>
+                            <br>Directed towards the tuition of</br>
+                            students enrolled at NAME in
+                            <br>need of tuition assistance.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+            <input type="submit" class="mui-btn mui-btn--primary" id="submitBtn" value="submit"/>
+            <button id="printBtn" class="mui-btn mui-btn--primary" onClick="window.print()">Print this page</button>
+            </form>
+    <script>
+
+        function calculateTotalCards(){
+            var totalCards = 0;
+            $('.qty').each(function(){
+                totalCards += Number($(this).val());
+            });
+            $('.totalCards').val(totalCards)}
+
+        var refreshTime;
+        $(document).ready(function(){
+            refreshTime = setInterval("calculateTotalCards()", 500);});
+
+        function calculateTotalDue(){
+            var totalDue = 0;
+            $('.amount').each(function(){
+                totalDue += Number($(this).val());
+            });
+            $('.totalDue').val(totalDue)}
+
+        var refreshTime;
+        $(document).ready(function(){
+            refreshTime = setInterval("calculateTotalDue()", 500);});
+
+        function calculateDis(){
+            parseInt(($('.disAmount').val($('.totalDue').val()* 0.01))).toFixed(2);}
+
+        var refreshTime;
+        $(document).ready(function(){
+            refreshTime = setInterval("calculateDis()", 500);});
+            
+
+            
+        function calculateAW(){
+            var denom = document.getElementById("awInput").value;
+            var qty = document.getElementById("awQty").value; 
+            document.getElementById("awAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateACE(){
+            var denom = document.getElementById("aceInput").value;
+            var qty = document.getElementById("aceQty").value; 
+            document.getElementById("aceAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateCASEY(){
+            var denom = document.getElementById("caseyInput").value;
+            var qty = document.getElementById("caseyQty").value; 
+            document.getElementById("caseyAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateFARE(){
+            var denom = document.getElementById("farewayInput").value;
+            var qty = document.getElementById("farewayQty").value; 
+            document.getElementById("farewayAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateFISK(){
+            var denom = document.getElementById("fiskInput").value;
+            var qty = document.getElementById("fiskQty").value; 
+            document.getElementById("fiskAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateDOLLAR(){
+            var denom = document.getElementById("dollarInput").value;
+            var qty = document.getElementById("dollarQty").value; 
+            document.getElementById("dollarAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateKWIK(){
+            var denom = document.getElementById("kwikInput").value;
+            var qty = document.getElementById("kwikQty").value; 
+            document.getElementById("kwikAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculatePINTERS(){
+            var denom = document.getElementById("pintersInput").value;
+            var qty = document.getElementById("pintersQty").value; 
+            document.getElementById("pintersAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateSUB(){
+            var denom = document.getElementById("subwayInput").value;
+            var qty = document.getElementById("subwayQty").value; 
+            document.getElementById("subwayAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateSUE(){
+            var denom = document.getElementById("sueInput").value;
+            var qty = document.getElementById("sueQty").value; 
+            document.getElementById("sueAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateATOMIC(){
+            var denom = document.getElementById("atomicInput").value;
+            var qty = document.getElementById("atomicQty").value; 
+            document.getElementById("atomicAmount").value = parseInt(denom) * parseInt(qty);
+        }
+
+        function calculateSPECIAL(){
+            var denom = document.getElementById("specialInput").value;
+            var qty = document.getElementById("specialQty").value; 
+            document.getElementById("specialAmount").value = parseInt(denom) * parseInt(qty);
+        }
+        </script>
+
+    </body>
+</html>
