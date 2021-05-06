@@ -194,6 +194,3 @@ def get_random():
     res.headers["Access-Control-Allow-Origin"] = "*"
     res.headers["Content-Type"] = "application/json"
     return res
-
-if __name__ == "__main__":
-    app.run("0.0.0.0")
