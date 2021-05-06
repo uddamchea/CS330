@@ -10,7 +10,7 @@ from flask import Flask, Response, jsonify, request, render_template, url_for, r
 
 app = Flask(__name__)
 
-conn = sqlite3.connect('/home/chea/Desktop/CS330/projects/final_project/database.db')
+conn = sqlite3.connect('/home/chea/CS330/projects/final_project/database.db')
 print ("Opened database successfully");
 
 # conn.execute('CREATE TABLE ACTION (name TEXT, year TEXT, genre TEXT, producer TEXT)')
@@ -43,7 +43,7 @@ def addrec():
             genre = request.form['genre']
             producer = request.form['producer']
          
-            with sql.connect('/home/chea/Desktop/CS330/projects/final_project/database.db') as con:
+            with sql.connect('/home/chea/CS330/projects/final_project/database.db') as con:
                 cur = con.cursor()
                 cur.execute("INSERT INTO ACTION (name,year,genre,producer) VALUES (?,?,?,?)",(name,year,genre,producer) )
                 con.commit()
@@ -55,7 +55,7 @@ def addrec():
             genre = request.form['genre']
             producer = request.form['producer']
          
-            with sql.connect('/home/chea/Desktop/CS330/projects/final_project/database.db') as con:
+            with sql.connect('/home/chea/CS330/projects/final_project/database.db') as con:
                 cur = con.cursor()
                 cur.execute("INSERT INTO ADVENTURE (name,year,genre,producer) VALUES (?,?,?,?)",(name,year,genre,producer) )
                 con.commit()
@@ -67,7 +67,7 @@ def addrec():
             genre = request.form['genre']
             producer = request.form['producer']
          
-            with sql.connect('/home/chea/Desktop/CS330/projects/final_project/database.db') as con:
+            with sql.connect('/home/chea/CS330/projects/final_project/database.db') as con:
                 cur = con.cursor()
                 cur.execute("INSERT INTO ROMCOM (name,year,genre,producer) VALUES (?,?,?,?)",(name,year,genre,producer) )
                 con.commit()
@@ -87,7 +87,7 @@ def option():
 
 @app.route("/action")
 def action():
-    con = sql.connect('/home/chea/Desktop/CS330/projects/final_project/database.db')
+    con = sql.connect('/home/chea/CS330/projects/final_project/database.db')
     con.row_factory = sql.Row
    
     cur = con.cursor()
@@ -98,7 +98,7 @@ def action():
 
 @app.route("/adventure")
 def adventure():
-    con = sql.connect('/home/chea/Desktop/CS330/projects/final_project/database.db')
+    con = sql.connect('/home/chea/CS330/projects/final_project/database.db')
     con.row_factory = sql.Row
    
     cur = con.cursor()
@@ -109,7 +109,7 @@ def adventure():
 
 @app.route("/romcom")
 def romcom():
-    con = sql.connect('/home/cheara/Desktop/CS330/projects/final_project/database.db')
+    con = sql.connect('/home/chea/CS330/projects/final_project/database.db')
     con.row_factory = sql.Row
    
     cur = con.cursor()
