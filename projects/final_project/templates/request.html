@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<div class="mui-container">
+    {{ data.name }}
+</div>
+<table id="movie_data" class="mui-row">
+    <thead>
+        <th>Movie</th>
+    </thead>
+    <tbody>
+        {% for i in data.name %}
+            <tr>
+                <td>{{ i.Movie }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+
+    $(document).ready(function(){
+        $("#movie_data").DataTable();
+    });
+
+</script>
+
+{% endblock %}

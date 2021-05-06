@@ -2,6 +2,7 @@ import os
 import json
 import random
 import sqlite3
+import requests
 import sqlite3 as sql
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
@@ -25,6 +26,12 @@ print ("Opened database successfully");
 @app.route("/")
 def index():
     return render_template("home.html")
+
+@app.route("/request")
+def getAPI():
+    summary = requests.get("http://localhost:5000/api/v1/random")
+    response = summary.json()
+    return render_template("request.html", data=response)
 
 @app.route('/addrec',methods = ['POST', 'GET'])
 def addrec():
@@ -73,18 +80,6 @@ def addrec():
       finally:
          return render_template("result.html",msg = msg)
          con.close()
-
-# @app.route("/server")
-# def server():
-#     con = sql.connect("database.db")
-#     con.row_factory = sql.Row
-   
-#     cur = con.cursor()
-#     cur.execute("select * from ACTION")
-   
-#     rows = cur.fetchall(); 
-#     return render_template("server.html",rows = rows)
-
 
 @app.route("/option")
 def option():
