@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <h1 style="color: white;">Explore Top Movies</h1>
+</div>
+
+<div class="mui-container mui--text-center">
+   <form>
+      <button class="mui-btn mui-btn--primary mui-btn--raised" style="float: left;"><a href=/add style="text-decoration: none; color:white;">Add More Movies</button>
+      <button class="mui-btn mui-btn--accent mui-btn--raised" style="float: center;"><a href=/server style="text-decoration: none; color:white;">My List</button>
+      <button class="mui-btn mui-btn--danger mui-btn--raised" style="float: right;"><a href=logout style="text-decoration: none; color:white;">Logout</button>
+   </form>
+</div>
+
+<form>
+   <table id="display" class="mui-table">
+      <thead>
+         <th>Movie Name</th>
+         <th>Release Date</th>
+         <th>Genre</th>
+         <th>Producer</th>
+      </thead>
+
+      <tbody>
+         <tr>
+            <td>Mortal Kombat</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Simon McQuoid</td>
+        </tr>
+        <tr>
+            <td>Tom Clancy's Without Remorse</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Stefano Sollima</td>
+        </tr>
+        <tr>
+            <td>Nobody</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Ilya Naishuller</td>
+        </tr>
+        <tr>
+            <td>The Tomorrow War</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Chris McKay</td>
+        </tr>
+        <tr>
+            <td>Godzilla vs Kong</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Adam Wingard</td>
+        </tr>
+        <tr>
+            <td>Love and Monsters</td>
+            <td>2020</td>
+            <td>Action</td>
+            <td>Michael Matthews</td>
+        </tr>
+        <tr>
+            <td>Demon Slayer: Mugen Train</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Haruo Sotozaki</td>
+        </tr>
+        <tr>
+            <td>The Virtuoso</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Nick Stagliano</td>
+        </tr>
+        <tr>
+            <td>Zack Snyder's Justice League</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Zack Snyder</td>
+        </tr>
+        <tr>
+            <td>Wrath of Man</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Guy Ritchie</td>
+        </tr>
+        <tr>
+            <td>Seven Years in Tibet</td>
+            <td>1997</td>
+            <td>Adventure</td>
+            <td>Jean-Jacques Annaud</td>
+        </tr>
+        <tr>
+            <td>Journey to the Center of the Earth</td>
+            <td>2008</td>
+            <td>Adventure</td>
+            <td>Eric Brevig</td>
+        </tr>
+        <tr>
+            <td>Black Death</td>
+            <td>2010</td>
+            <td>Adventure</td>
+            <td>Christopher Smith</td>
+        </tr>
+        <tr>
+            <td>Alive</td>
+            <td>2020</td>
+            <td>Adventure</td>
+            <td>Il Cho</td>
+        </tr>
+        <tr>
+            <td>Apocalypto</td>
+            <td>2006</td>
+            <td>Adventure</td>
+            <td>Mel Gibson</td>
+        </tr>
+        <tr>
+            <td>1917</td>
+            <td>2019</td>
+            <td>Adventure</td>
+            <td>Sam Mendes</td>
+        </tr>
+        <tr>
+            <td>Valhalla Rising</td>
+            <td>2010</td>
+            <td>Adventure</td>
+            <td>Nicolas Winding Refn</td>
+        </tr>
+        <tr>
+            <td>Operation Condor</td>
+            <td>1991</td>
+            <td>Adventure</td>
+            <td>Jackie Chan</td>
+        </tr>
+        <tr>
+            <td>The Goonies</td>
+            <td>1985</td>
+            <td>Adventure</td>
+            <td>Richard Donner</td>
+        </tr>
+        <tr>
+            <td>Swiss Army Man</td>
+            <td>2016</td>
+            <td>Adventure</td>
+            <td>Daniel Kwan</td>
+        </tr>
+        <tr>
+            <td>Crazy Rich Asians</td>
+            <td>2018</td>
+            <td>Rom-Com</td>
+            <td>Jon M. Chu</td>
+        </tr>
+        <tr>
+            <td>Something's Gotta Give</td>
+            <td>2003</td>
+            <td>Rom-Com</td>
+            <td>Nancy Meyers</td>
+        </tr>
+        <tr>
+            <td>The Wedding Singer</td>
+            <td>1998</td>
+            <td>Rom-Com</td>
+            <td>Frank Coraci</td>
+        </tr>
+        <tr>
+            <td>(500) Days of Summer</td>
+            <td>2009</td>
+            <td>Rom-Com</td>
+            <td>Marc Webb</td>
+        </tr>
+        <tr>
+            <td>Crazy, Stupid, Love</td>
+            <td>2011</td>
+            <td>Rom-Com</td>
+            <td>Glenn Ficarra</td>
+        </tr>
+        <tr>
+            <td>Roxanne</td>
+            <td>1987</td>
+            <td>Rom-Com</td>
+            <td>Fred Schepisi</td>
+        </tr>
+        <tr>
+            <td>The Best Man</td>
+            <td>1999</td>
+            <td>Rom-Com</td>
+            <td>Malcolm D. Lee</td>
+        </tr>
+        <tr>
+            <td>Go Fish</td>
+            <td>1994</td>
+            <td>Rom-Com</td>
+            <td>Guinevere Turner</td>
+        </tr>
+        <tr>
+            <td>Bridget Jones' Diary</td>
+            <td>2001</td>
+            <td>Rom-Com</td>
+            <td>Sharon Maguire</td>
+        </tr>
+        <tr>
+            <td>10 Things I Hate About You</td>
+            <td>1999</td>
+            <td>Rom-Com</td>
+            <td>Gil Junger</td>
+        </tr>
+        <tr>
+            <td>Amelie</td>
+            <td>2001</td>
+            <td>Rom-Com</td>
+            <td>Jean-Pierre Jeunet</td>
+        </tr>
+        <tr>
+            <td>The Big Sick</td>
+            <td>2017</td>
+            <td>Rom-Com</td>
+            <td>Michael Showalter</td>
+        </tr>
+      </tbody>
+   </table>
+</form>
+
+<style>
+    body{
+    background-image: url(https://images.unsplash.com/photo-1505775561242-727b7fba20f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+    backdrop-filter: blur(2px);
+    color: white;
+    width: 100%;
+    }
+
+    h1{
+    text-align: center;
+    }
+</style>
+{% endblock %}

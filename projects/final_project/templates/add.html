@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Add Movies to List</h1>
+
+<form style="text-align: center;">
+    <input type="text" name="name" id="name" placeholder="Movie Name" required>
+    <input type="text" name="year" id="year" placeholder="Release Date">
+    <input type="text" name="genre" id="genre" placeholder="Genre">
+    <input type="text" name="producer" id="producer" placeholder="Producer">
+    <input type="submit" class="mui-btn mui-btn--primary" id="submitBtn" value="submit"/>
+</form>
+
+<h1>Get Random Movie</h1>
+<form style="text-align: center;">
+    <input type="text" name"random" id="random">
+    <button class="mui-btn mui-btn--accent mui-btn--raised">Random</button>
+</form>
+
+<button class="mui-btn mui-btn--danger mui-btn--raised"><a href=home style="text-decoration: none; color:white;">Go Back</button>
+
+
+<style>
+    body{
+    background-image: url(https://images.unsplash.com/photo-1505744386214-51dba16a26fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1467&q=80);
+    backdrop-filter: blur(2px);
+    color: white;
+    width: 100%;
+    }
+
+    h1{
+    text-align:center;
+    }
+
+</style>
+{% endblock %}

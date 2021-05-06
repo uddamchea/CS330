@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <h1><a href="" style="text-decoration:none; color: white;">Explore Top Movies</a></h1>
+</div>
+
+<div class="mui-container mui--text-center">
+   <form class="mylist" method="POST">
+    <button class="mui-btn mui-btn--danger mui-btn--raised"><a href=login style="text-decoration: none; color:white;">Login</button>
+   </form>
+</div>
+
+<form method="POST">
+   <table id="display" class="mui-table" class="sortable">
+      <thead>
+         <th>Movie Name</th>
+         <th>Release Date</th>
+         <th>Genre</th>
+         <th>Producer</th>
+      </thead>
+
+      <tbody>
+        <tr>
+            <td>Mortal Kombat</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Simon McQuoid</td>
+        </tr>
+        <tr>
+            <td>Tom Clancy's Without Remorse</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Stefano Sollima</td>
+        </tr>
+        <tr>
+            <td>Nobody</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Ilya Naishuller</td>
+        </tr>
+        <tr>
+            <td>The Tomorrow War</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Chris McKay</td>
+        </tr>
+        <tr>
+            <td>Godzilla vs Kong</td>
+            <td>2021</td>
+            <td>Action</td>
+            <td>Adam Wingard</td>
+        </tr>
+        <tr>
+            <td>Seven Years in Tibet</td>
+            <td>1997</td>
+            <td>Adventure</td>
+            <td>Jean-Jacques Annaud</td>
+        </tr>
+        <tr>
+            <td>Journey to the Center of the Earth</td>
+            <td>2008</td>
+            <td>Adventure</td>
+            <td>Eric Brevig</td>
+        </tr>
+        <tr>
+            <td>Black Death</td>
+            <td>2010</td>
+            <td>Adventure</td>
+            <td>Christopher Smith</td>
+        </tr>
+        <tr>
+            <td>Alive</td>
+            <td>2020</td>
+            <td>Adventure</td>
+            <td>Il Cho</td>
+        </tr>
+        <tr>
+            <td>Apocalypto</td>
+            <td>2006</td>
+            <td>Adventure</td>
+            <td>Mel Gibson</td>
+        </tr>
+        <tr>
+            <td>Crazy Rich Asians</td>
+            <td>2018</td>
+            <td>Rom-Com</td>
+            <td>Jon M. Chu</td>
+        </tr>
+        <tr>
+            <td>Something's Gotta Give</td>
+            <td>2003</td>
+            <td>Rom-Com</td>
+            <td>Nancy Meyers</td>
+        </tr>
+        <tr>
+            <td>The Wedding Singer</td>
+            <td>1998</td>
+            <td>Rom-Com</td>
+            <td>Frank Coraci</td>
+        </tr>
+        <tr>
+            <td>(500) Days of Summer</td>
+            <td>2009</td>
+            <td>Rom-Com</td>
+            <td>Marc Webb</td>
+        </tr>
+        <tr>
+            <td>Crazy, Stupid, Love</td>
+            <td>2011</td>
+            <td>Rom-Com</td>
+            <td>Glenn Ficarra</td>
+        </tr>
+        <tr>
+            <td>Forgetting Sarah Marshall</td>
+            <td>2008</td>
+            <td>Rom-Com</td>
+            <td>Nicholas Stoller</td>
+        </tr>
+      </tbody>
+   </table>
+</form>
+
+
+<style>
+    body{
+    background-image: url(https://images.unsplash.com/photo-1605958610903-43aa1dfc9697?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80);
+    backdrop-filter: blur(2px);
+    color: white;
+    width: 100%;
+    }
+
+    h1{
+    text-align: center;
+    }
+</style>
+{% endblock %}
