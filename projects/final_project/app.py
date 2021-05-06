@@ -1,11 +1,11 @@
-from flask import Flask, Response, jsonify, request, render_template, url_for, redirect
+import os
 import json
 import random
-import os
+import sqlite3
+import sqlite3 as sql
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-import sqlite3 as sql
-import sqlite3
+from flask import Flask, Response, jsonify, request, render_template, url_for, redirect
 
 app = Flask(__name__)
 
@@ -22,61 +22,113 @@ print ("Opened database successfully");
 # print ("Table created successfully");
 # conn.close()
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/")
 def index():
-    return render_template("login.html")
-
-@app.route("/home", methods=['GET', 'POST'])
-def home():
     return render_template("home.html")
 
-@app.route("/login", methods=['GET', 'POST'])
-def login():
-    return render_template("login.html")
-
-@app.route("/logout", methods=['GET', 'POST'])
-def logout():
-    return render_template("login.html")
-
-@app.route("/guest", methods=['GET', 'POST'])
-def guest():
-    return render_template("guest.html")
-
-@app.route("/server", methods=['GET', 'POST'])
-def server():
-    return render_template("server.html")
-
-@app.route("/add", methods=['GET', 'POST'])
-def add():
-    if request.method == 'POST':
-        try:
+@app.route('/addrec',methods = ['POST', 'GET'])
+def addrec():
+   if request.method == 'POST':
+      try:
+          if len(request.form['genre']) == 6:
             name = request.form['name']
             year = request.form['year']
             genre = request.form['genre']
             producer = request.form['producer']
-                
+         
             with sql.connect("database.db") as con:
                 cur = con.cursor()
                 cur.execute("INSERT INTO ACTION (name,year,genre,producer) VALUES (?,?,?,?)",(name,year,genre,producer) )
-                    
-            con.commit()
-            msg = "Record successfully added"
-        except:
-            con.rollback()
-            msg = "error in insert operation"
-            
-        finally:
-            return render_template("result.html",msg = msg)
-            con.close()
-    return render_template("add.html")
+                con.commit()
+                msg = "Record Successfully Added"
+             
+          if len(request.form['genre']) == 9:
+            name = request.form['name']
+            year = request.form['year']
+            genre = request.form['genre']
+            producer = request.form['producer']
+         
+            with sql.connect("database.db") as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO ADVENTURE (name,year,genre,producer) VALUES (?,?,?,?)",(name,year,genre,producer) )
+                con.commit()
+                msg = "Record Successfully Added"
 
-@app.route("/result", methods=['GET', 'POST'])
-def result():
-    return render_template("result.html")
+          else:
+            name = request.form['name']
+            year = request.form['year']
+            genre = request.form['genre']
+            producer = request.form['producer']
+         
+            with sql.connect("database.db") as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO ROMCOM (name,year,genre,producer) VALUES (?,?,?,?)",(name,year,genre,producer) )
+                con.commit()
+                msg = "Record Successfully Added"
 
-@app.route("/api/v1/action")
-def get_action():
-    movie_action = [
+      except:
+          con.rollback()
+          msg = "Error in Insert Operation"
+      
+      finally:
+         return render_template("result.html",msg = msg)
+         con.close()
+
+# @app.route("/server")
+# def server():
+#     con = sql.connect("database.db")
+#     con.row_factory = sql.Row
+   
+#     cur = con.cursor()
+#     cur.execute("select * from ACTION")
+   
+#     rows = cur.fetchall(); 
+#     return render_template("server.html",rows = rows)
+
+
+@app.route("/option")
+def option():
+    return render_template("option.html")
+
+@app.route("/action")
+def action():
+    con = sql.connect("database.db")
+    con.row_factory = sql.Row
+   
+    cur = con.cursor()
+    cur.execute("select * from ACTION")
+   
+    rows = cur.fetchall(); 
+    return render_template("action.html",rows = rows)
+
+@app.route("/adventure")
+def adventure():
+    con = sql.connect("database.db")
+    con.row_factory = sql.Row
+   
+    cur = con.cursor()
+    cur.execute("select * from ADVENTURE")
+   
+    rows = cur.fetchall(); 
+    return render_template("adventure.html",rows = rows)
+
+@app.route("/romcom")
+def romcom():
+    con = sql.connect("database.db")
+    con.row_factory = sql.Row
+   
+    cur = con.cursor()
+    cur.execute("select * from ROMCOM")
+   
+    rows = cur.fetchall(); 
+    return render_template("romcom.html",rows = rows)
+
+
+
+
+@app.route("/api/v1/random")
+def get_random(): 
+    movies= [
         "Mortal Kombat",
         "Tom Clancy's Without Remorse",
         "Nobody",
@@ -96,17 +148,7 @@ def get_action():
         "Black Widow",
         "The Suicide Squad",
         "Spider-Man: No Way Home",
-        "Batman v Superman"
-    ]
-
-    res = Response(json.dumps({"name": movie_action}))
-    res.headers["Access-Control-Allow-Origin"] = "*"
-    res.headers["Content-Type"] = "application/json"
-    return res
-
-@app.route("/api/v1/adventure")
-def get_adventure():
-    movie_adventure = [
+        "Batman v Superman",
         "Seven Years in Tibet",
         "Journey to the Center of the Earth",
         "Black Death",
@@ -126,17 +168,7 @@ def get_adventure():
         "The Road",
         "The Poseidon Adventure",
         "Gladiator",
-        "Big Fish"
-    ]
-
-    res = Response(json.dumps({"name": movie_adventure}))
-    res.headers["Access-Control-Allow-Origin"] = "*"
-    res.headers["Content-Type"] = "application/json"
-    return res
-
-@app.route("/api/v1/romcom")
-def get_romcom():
-    movie_romcom = [
+        "Big Fish",
         "Crazy Rich Asians",
         "Something's Gotta Give",
         "The Wedding Singer",
@@ -158,8 +190,12 @@ def get_romcom():
         "Enough Said",
         "Jerry Maguire"
     ]
-
-    res = Response(json.dumps({"name": movie}))
+    
+    random_movie = random.choice(movies)
+    res = Response(json.dumps
+    ({
+        "name": random_movie,
+    }))
     res.headers["Access-Control-Allow-Origin"] = "*"
     res.headers["Content-Type"] = "application/json"
     return res

@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Movie Added!</h1>
-<div class="mui-container mui--text-center">
-<button class="mui-btn mui-btn--primary mui-btn--raised" style="float: left;"><a href=add style="text-decoration: none; color:white;">Add More Movies</button>
-<button class="mui-btn mui-btn--accent mui-btn--raised" style="float: center;"><a href=home style="text-decoration: none; color:white;">Go Back Home</button>
-<button class="mui-btn mui-btn--danger mui-btn--raised" style="float: right;"><a href=logout style="text-decoration: none; color:white;">Log Out</button>
+<div class="mui-container mui--text-center" style="margin-top: 22%;">
+<h1>Submission Status : </h1>
+<h2> {{ msg }} </h2>
 </div>
 
+<div class="mui-container mui--text-center">
+<button class="mui-btn mui-btn--accent" style="float: center;"><a href = "\" style="text-decoration: none; color: white;">go back to home page</a></button>
+<div>
 <style>
     body{
     background-image: url(https://images.unsplash.com/photo-1505744386214-51dba16a26fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1467&q=80);
@@ -16,8 +17,10 @@
     width: 100%;
     }
 
-    h1{
-    text-align:center;
+    h1. h2{
+    text-align: center;
+    float: center;
+    color: black;
     }
 
 </style>
