@@ -16,15 +16,21 @@
         <option value="RomCom">Rom-Com</option>
     </select>
     <input type="text" name="producer" id="producer" placeholder="Producer">
-    <button class="mui-btn mui-btn--accent mui-btn--raised" style="float: left;"><a href=option style="text-decoration: none; color:white;"></a>My List</button>
+    <button class="mui-btn mui-btn--accent mui-btn--raised" style="float: left;"><a href=option style="text-decoration: none; color:white;"/>My List</button>
    </form>
 </div>
 
 <div class="mui-container mui--text-center" style="margin-top: 5%;">
     <input type="text" name="random" id="random">
-    <button class="mui-btn mui-btn--primary mui-btn--raised">Choose for Me</button>
+    <button class="mui-btn mui-btn--primary mui-btn--raised" onclick="get_random()">Choose for Me</button>
+    <button class="mui-btn mui-btn--primary mui-btn--raised"><a href=request style="text-decoration: none; color: white;">Choose for Me (Sort of)</a></button>
 </div>
 
+<script>
+    function get_random(){
+        random= document.getElementById("api_data").textContent
+    }
+</script>
 
 <style>
     body{
